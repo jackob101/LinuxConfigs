@@ -60,4 +60,42 @@ return {
   "moll/vim-bbye",
   "elkowar/yuck.vim",
   "bhurlow/vim-parinfer",
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end,
+  },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
+  {
+    "phaazon/hop.nvim",
+    config = function()
+      require("hop").setup({
+        keys = "qwertyuiopasdfgh",
+      })
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup({})
+    end,
+  },
 }
