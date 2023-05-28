@@ -19,6 +19,8 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.diagnostic.config({ virtual_text = false })
 
+vim.g.yuck_lisp_indentation = 1
+
 vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
