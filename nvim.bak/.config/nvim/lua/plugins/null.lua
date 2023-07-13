@@ -10,6 +10,7 @@ return {
         nls.builtins.formatting.rustfmt.with({
           extra_args = { "--edition=2021" },
         }),
+        nls.builtins.formatting.black
         -- nls.builtins.diagnostics.flake8,
       },
     }
