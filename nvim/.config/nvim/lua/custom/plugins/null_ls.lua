@@ -22,6 +22,7 @@ return {
       sources = {
         -- Lua
         b.formatting.stylua,
+        b.formatting.prettier,
 
         -- Shell
         -- b.formatting.shfmt,

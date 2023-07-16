@@ -1,4 +1,5 @@
-local on_attach = function(_, bufnr)
+on_attach = function(_, bufnr)
+  print 'On attach'
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -43,6 +44,12 @@ end
 
 return {
   {
+    'simrat39/rust-tools.nvim',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+  },
+  {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -52,7 +59,7 @@ return {
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -100,6 +107,58 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = servers[server_name],
+          }
+        end,
+        ['rust_analyzer'] = function()
+          require('rust-tools').setup {
+            tools = { -- rust-tools options
+              autoSetHints = true,
+              hover_with_actions = true,
+              inlay_hints = {
+                show_parameter_hints = false,
+                parameter_hints_prefix = '',
+                other_hints_prefix = '',
+              },
+            },
+
+            -- all the opts to send to nvim-lspconfig
+            -- these override the defaults set by rust-tools.nvim
+            -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+            server = {
+              -- on_attach is a callback called when the language server attachs to the buffer
+              -- on_attach = on_attach,
+              capabilities = capabilities,
+              on_attach = function(client, bufnr)
+                on_attach(client, bufnr)
+                client.resolved_capabilities.document_formatting = false
+                client.resolved_capabilities.document_range_formatting = false
+              end,
+              settings = {
+                -- to enable rust-analyzer settings visit:
+                -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+                ['rust-analyzer'] = {
+                  cargo = {
+                    allFeatures = true,
+                    loadOutDirsFromCheck = true,
+                    runBuildScripts = true,
+                  },
+                  -- Add clippy lints for Rust.
+                  checkOnSave = {
+                    allFeatures = true,
+                    command = 'clippy',
+                    extraArgs = { '--no-deps' },
+                  },
+                  procMacro = {
+                    enable = true,
+                    ignored = {
+                      ['async-trait'] = { 'async_trait' },
+                      ['napi-derive'] = { 'napi' },
+                      ['async-recursion'] = { 'async_recursion' },
+                    },
+                  },
+                },
+              },
+            },
           }
         end,
       }

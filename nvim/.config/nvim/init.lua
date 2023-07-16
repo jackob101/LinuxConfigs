@@ -48,7 +48,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   {
     -- Highlight, edit, and navigate code
@@ -73,6 +73,11 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
 }, {})
+
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = false, underline = true })
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = false, underline = true })
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInf', { undercurl = false, underline = true })
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = false, underline = true })
 
 -- [[ Setting options ]]
 -- See `:help vim.o`

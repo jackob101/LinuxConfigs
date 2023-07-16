@@ -3,13 +3,17 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim', 'ThePrimeagen/harpoon' },
     keys = {
-      { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
-      { '<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Show keymaps' },
+      { '<leader>ff', '<cmd>Telescope find_files<cr>',                desc = 'Find files' },
+      { '<leader>fk', '<cmd>Telescope keymaps<cr>',                   desc = 'Show keymaps' },
       { '<leader>fg', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Current buffer fuzzy find' },
-      { '<leader>fG', '<cmd>Telescope live_grep<cr>', desc = 'Live grep' },
+      { '<leader>fG', '<cmd>Telescope live_grep<cr>',                 desc = 'Live grep' },
     },
+    config = function()
+      require('telescope').setup()
+      require('telescope').load_extension 'harpoon'
+    end,
   },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
