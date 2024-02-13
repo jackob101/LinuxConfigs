@@ -3,6 +3,9 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+
+-- -- Use Ctrl+h/j/k/l to navigate between splits
+
 return {
   -- first key is the mode
   n = {
@@ -32,6 +35,11 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+    ["<C-Right>"] = {":wincmd l<cr>", desc = "Move to right split"},
+    ["<C-Left>"] = {":wincmd h<cr>", desc = "Move to left split"},
+    ["<C-Down>"] = {":wincmd j<cr>", desc = "Move to below split"},
+    ["<C-Up>"] = {":wincmd k<cr>", desc = "Move to up split"},
+    ["<leader>h"] = {":HopChar1<cr>", desc = "Hop to char"},
   },
   t = {
     -- setting a mapping to false will disable it

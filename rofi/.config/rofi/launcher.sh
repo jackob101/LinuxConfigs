@@ -10,4 +10,4 @@ theme="style.rasi"
 dir="$HOME/.config/rofi/launcher"
 
 #exec command
-rofi  -no-lazy-grab -show drun -p "Application name" -theme $dir/"$theme"
+rofi  -no-lazy-grab -show drun -show-icons -icon-theme "Papirus-Light" -theme $dir/"$theme"
