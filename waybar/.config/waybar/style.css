@@ -1,15 +1,19 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: Ubuntu;
-  font-size: 15px;
+  font-size: 16;
 }
+
+/* .bigger * { */
+/*   font-size: 18; */
+/* } */
 
 window#waybar {
   background-color: rgba(40, 44, 52, 0.9);
   color: #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 button {
