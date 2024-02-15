@@ -2,12 +2,7 @@
 
 ## Author : Aditya Shakya (adi1090x)
 ## Github : @adi1090x
-#
-## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
+## Modified version
 
 # Current Theme
 dir="$HOME/.config/rofi/powermenu/"
@@ -42,16 +37,20 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	if [[ $1 == '--shutdown' ]]; then
-		systemctl poweroff
+		# systemctl poweroff
+		echo "hello"
 	elif [[ $1 == '--reboot' ]]; then
-		systemctl reboot
+		# systemctl reboot
+		echo "hello"
 	elif [[ $1 == '--suspend' ]]; then
-		mpc -q pause
-		amixer set Master mute
-		systemctl suspend
+		# mpc -q pause
+		# amixer set Master mute
+		# systemctl suspend
+		echo "hello"
 	elif [[ $1 == '--logout' ]]; then
 		if [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
-			hyprctl dispatch exit
+			# hyprctl dispatch exit
+			echo "hello"
 		fi
 	fi
 }

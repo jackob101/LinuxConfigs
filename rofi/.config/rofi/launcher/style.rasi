@@ -1,99 +1,98 @@
-
 /*******************************************************************************
- * MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI 
+ * MACOS LAUNCHPAD LIKE THEME FOR ROFI 
  * User                 : LR-Tech               
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
 * {
-    font:   "Ubuntu 12";
+    font: "Ubuntu 12";
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
+    background-window:           black/60%;
+    background-normal:           white/10%;
+    background-highlight:        white/20%;
+    background-selected:         rgba(158, 206, 106, 0.5);
+    foreground-normal:           white;
+    foreground-selected:         white;
+    foreground-placeholder:      white/20%;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
+    border-radius:              5px;
 
-    background-color:   transparent;
-    text-color:         @fg0;
-
-    margin:     0;
-    padding:    0;
-    spacing:    0;
+    background-color:           transparent;
+    text-color:                 var(foreground-normal);
+    padding:                    0px;
+    margin:                     0px;
 }
 
 window {
-    background-color:   @bg0;
+    transparency:               "real";
+    fullscreen:                 true;
+    padding:                    2.5em;
+    background-color:           var(background-window);
+}
 
-    location:       center;
-    width:          640;
-    border-radius:  8;
+mainbox {
+    padding:                    8px;
 }
 
 inputbar {
-    font:       "Ubuntu 20";
-    padding:    12px;
-    spacing:    12px;
-    children:   [ icon-search, entry ];
+  background-color: var(background-normal);
+
+  margin:   0px calc( 50% - 350px );
+  padding:  10px 15px;
+  spacing:  10px;
+
+  border:         1px;
+  border-radius:  var(border-radius);
+  border-color:   var(background-highlight);
+
+  children: [icon-search,entry];
+}
+
+prompt {
+  enabled:  false;
 }
 
 icon-search {
-    expand:     false;
-    filename:   "search";
-    size: 28px;
-}
-
-icon-search, entry, element-icon, element-text {
-    vertical-align: 0.5;
+  text-color: var(foreground-normal);
+  expand:   false;
+  filename: "search";
+  vertical-align: 0.5;
 }
 
 entry {
-    font:   inherit;
-
-    placeholder         : "Search";
-    placeholder-color   : @fg2;
-}
-
-message {
-    border:             2px 0 0;
-    border-color:       @bg1;
-    background-color:   @bg1;
-}
-
-textbox {
-    padding:    8px 24px;
+  placeholder:        "Search";
+  placeholder-color:  var(foreground-placeholder);
 }
 
 listview {
-    lines:      10;
-    columns:    1;
+  margin:         48px calc( 50% - 560px );
+  spacing:        48px;
+  columns:        6;
+  fixed-columns:  true;
+  flow:           horizontal;
+}
 
-    fixed-height:   false;
-    border:         1px 0 0;
-    border-color:   @bg1;
+element, element-text, element-icon {
+  cursor: pointer;
 }
 
 element {
-    padding:            8px 16px;
-    spacing:            16px;
-    background-color:   transparent;
+  padding:      8px;
+  spacing:      4px;
+
+  orientation:    vertical;
+  border-radius:  var(border-radius);
 }
 
-element normal active {
-    text-color: @bg2;
-}
-
-element selected normal, element selected active {
-    background-color:   @bg2;
-    text-color:         @fg1;
+element selected {
+  background-color: var(background-selected);
 }
 
 element-icon {
-    size:   1em;
+  size: 4em;
+  horizontal-align: 0.5;
 }
 
 element-text {
-    text-color: inherit;
+  horizontal-align: 0.5;
 }
