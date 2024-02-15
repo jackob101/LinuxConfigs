@@ -1,103 +1,131 @@
+$custom-launcher: rgba(0, 0, 0, 0.8);
+$workspaces: rgba(0, 0, 0, 0.5);
+$system-info: rgba(0, 0, 0, 0.5);
+$tray: rgba(0, 0, 0, 0.8);
+$powermenu: rgba(0, 0, 0, 0.5);
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: Ubuntu;
-  font-size: 16; }
+  font-size: 16;
+}
 
 window#waybar {
   color: #ffffff;
-  background: transparent; }
+  background: transparent;
+}
 
 #custom-launcher {
   padding-left: 15px;
   padding-right: 15px;
   font-size: 26;
-  background: rgba(0, 0, 0, 0.8); }
+  background: $custom-launcher;
+}
 
 #r-launcher {
-  border-left: 15 solid rgba(0, 0, 0, 0.8);
+  border-left: 15 solid $custom-launcher;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #l-workspaces {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 35 solid $workspaces;
   margin-right: 0;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #workspaces {
   padding: 0 10px;
-  background: rgba(0, 0, 0, 0.5); }
+  background: $workspaces;
+}
 
 #r-workspaces {
-  border-left: 15 solid rgba(0, 0, 0, 0.5);
+  border-left: 15 solid $workspaces;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #l-system-info {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 35 solid $system-info;
   margin-right: 0;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #system-info {
   padding: 0 10px;
-  background: rgba(0, 0, 0, 0.5); }
+  background: $system-info;
+}
 
 #r-system-info {
-  border-left: 15 solid rgba(0, 0, 0, 0.5);
+  border-left: 15 solid $system-info;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #l-tray {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.8);
+  border-bottom: 35 solid $tray;
   margin-right: 0;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #tray {
-  background: rgba(0, 0, 0, 0.8); }
+  background: $tray;
+}
 
 #r-tray {
-  border-left: 15 solid rgba(0, 0, 0, 0.8);
+  border-left: 15 solid $tray;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #l-powermenu {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 35 solid $powermenu;
   margin-right: 0;
   background: transparent;
-  min-height: 0px; }
+  min-height: 0px;
+}
 
 #custom-powermenu {
-  background: rgba(0, 0, 0, 0.5);
+  background: $powermenu;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+}
 
-#workspaces button {
-  padding: 0 10px;
-  color: #ffffff;
-  margin: 0.3em 0;
-  border-radius: 2px; }
-  #workspaces button:hover {
-    background: rgba(158, 206, 106, 0.2); }
+#workspaces {
+  button {
+    padding: 0 10px;
+    color: #ffffff;
+    margin: 0.3em 0;
+    border-radius: 2px;
+
+    &:hover {
+      background: rgba(158, 206, 106, 0.2);
+    }
+  }
+}
 
 #workspaces button.active {
-  background-color: rgba(158, 206, 106, 0.5); }
+  background-color: rgba(158, 206, 106, 0.5);
+}
 
 #workspaces button.urgent {
-  background-color: #eb4d4b; }
+  background-color: #eb4d4b;
+}
 
 #clock,
 #network,
@@ -105,11 +133,14 @@ window#waybar {
 #wireplumber,
 #tray {
   padding: 0 10px;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 #tray > .passive {
-  -gtk-icon-effect: dim; }
+  -gtk-icon-effect: dim;
+}
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b; }
+  background-color: #eb4d4b;
+}

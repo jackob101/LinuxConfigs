@@ -1,7 +1,20 @@
 {
+  "group/system-info": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "network",
+      "clock"
+    ]
+  },
   "custom/launcher": {
     "format": "<span font='22'>󰣇</span>",
-    "on-click": "sleep 0.1 && $HOME/.config/rofi/launcher.sh &",
+    "on-click": "sleep 0.1 && $HOME/.config/rofi/launcher/script.sh &",
+    "tooltip": false
+  },
+  "custom/powermenu": {
+    "format": "<span font='22'>󰐥</span>",
+    "on-click": "sleep 0.1 && $HOME/.config/rofi/powermenu/script.sh &",
     "tooltip": false
   },
   "hyprland/workspaces": {
@@ -68,7 +81,11 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
     "on-click-right": "pavucontrol",
     "on-click": "pw-volume mute toggle"
