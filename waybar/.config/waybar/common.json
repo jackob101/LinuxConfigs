@@ -13,7 +13,7 @@
     "tooltip": false
   },
   "custom/powermenu": {
-    "format": "<span font='22'>󰐥</span>",
+    "format": "<span font='18' rise='-2000'>󰐥</span>",
     "on-click": "sleep 0.1 && $HOME/.config/rofi/powermenu/script.sh &",
     "tooltip": false
   },
