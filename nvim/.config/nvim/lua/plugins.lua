@@ -11,11 +11,11 @@ require("lazy").setup({
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
+				add = { text = "│" },
+				change = { text = "│" },
+				delete = { text = "│" },
+				topdelete = { text = "│" },
+				changedelete = { text = "│" },
 			},
 		},
 	},
@@ -33,6 +33,8 @@ require("lazy").setup({
 				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
 				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
 				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+				["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
+				["<leader>l"] = { name = "[L]sp", _ = "which_key_ignore" },
 			})
 		end,
 	},
@@ -91,7 +93,7 @@ require("lazy").setup({
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()
 				-- You can pass additional configuration to telescope to change theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
 					winblend = 10,
 					previewer = false,
 				}))
@@ -201,11 +203,11 @@ require("lazy").setup({
 
 					-- Rename the variable under your cursor
 					--  Most Language Servers support renaming across files, etc.
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>lr", vim.lsp.buf.rename, "[R]ename")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+					map("<leader>la", vim.lsp.buf.code_action, "Code [A]ction")
 
 					-- Opens a popup that displays documentation about the word under your cursor
 					--  See `:help K` for why this keymap
@@ -264,7 +266,9 @@ require("lazy").setup({
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				--
-
+				ocamllsp = {
+					cmd = { "ocamllsp" },
+				},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes { ...},
@@ -322,6 +326,7 @@ require("lazy").setup({
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
+				ocaml = { "ocamlformat" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -425,6 +430,20 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"rebelot/kanagawa.nvim",
+		priority = 1000,
+		init = function()
+			-- Load the colorscheme here.
+			-- Like many other themes, this one has different styles, and you could load
+			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+			vim.cmd.colorscheme("kanagawa-wave")
+
+			-- You can configure highlights by doing something like
+			vim.cmd.hi("Comment gui=none")
+		end,
+	},
+
 	{ -- You can easily change to a different colorscheme.
 		-- Change the name of the colorscheme plugin below, and then
 		-- change the command in the config to whatever the name of that colorscheme is
@@ -432,6 +451,7 @@ require("lazy").setup({
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
 		"folke/tokyonight.nvim",
 		priority = 1000, -- make sure to load this before all the other start plugins
+		enabled = false,
 		init = function()
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
@@ -468,6 +488,8 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
+
+			require("mini.pairs").setup()
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
@@ -527,7 +549,7 @@ require("lazy").setup({
 			-- There are additional nvim-treesitter modules that you can use to interact
 			-- with nvim-treesitter. You should go explore a few and see what interests you:
 			--
-			--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+			--    - Incremental selection: Included, see `:help nvim
 			--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
@@ -551,6 +573,50 @@ require("lazy").setup({
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	-- { import = 'custom.plugins' },
+	{
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup({
+				shell = "fish",
+			})
+
+			for i = 0, 9, 1 do
+				vim.keymap.set(
+					"n",
+					"<leader>tT" .. i,
+					"<CMD>:" .. i .. "ToggleTerm size=20 direction=horizontal<CR>",
+					{ desc = "Toggle terminal " .. i }
+				)
+			end
+
+			vim.keymap.set(
+				"n",
+				"<leader>tt",
+				"<CMD>:1ToggleTerm size=20 direction=horizontal<CR>",
+				{ desc = "Toggle default terminal" }
+			)
+		end,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("nvim-tree").setup({
+				sort = {
+					sorter = "case_sensitive",
+				},
+				view = {
+					width = 30,
+				},
+				renderer = {
+					group_empty = true,
+				},
+				filters = {
+					dotfiles = true,
+				},
+			})
+			vim.keymap.set("n", "<leader>te", "<CMD>:NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+		end,
+	},
 }, {
 	ui = {
 		-- If you have a Nerd Font, set icons to an empty table which will use the
