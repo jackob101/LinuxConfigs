@@ -12,22 +12,14 @@
     "include": ["~/.config/waybar/common.json"],
     "modules-left": [
         "custom/launcher",
-        "group/r-launcher",
-        "group/l-workspaces",
         "hyprland/workspaces",
-        "group/r-workspaces",
     ],
     //"modules-center": [
         //"hyprland/window"
     //],
     "modules-right": [
-        "group/l-system-info",
         "group/system-info",
-        "group/r-system-info",
-        "group/l-tray",
         "tray",
-        "group/r-tray",
-        "group/l-powermenu",
         "custom/powermenu"
     ],
 }

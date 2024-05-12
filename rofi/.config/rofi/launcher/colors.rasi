@@ -1,0 +1,16 @@
+
+* {
+  font:                       "Ubuntu Nerd Font Normal 12";
+
+  background-window:          black/60%;
+
+  background-window:          black/60%;
+  background-normal:          white/10%;
+  background-selected:        rgba(158, 206, 106, 0.5);
+  
+  foreground-normal:          white;
+  foreground-selected:        white;
+  foreground-placeholder:     white/20%;
+
+  border-radius:              5;
+}
