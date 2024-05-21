@@ -1,5 +1,4 @@
 require("options")
-require("filetypes")
 require("keymaps")
 require("autocmds")
 require("lazy-bootstrap")

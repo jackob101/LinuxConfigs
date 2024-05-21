@@ -37,7 +37,6 @@ return {
 
 	{ -- Autoformat
 		"stevearc/conform.nvim",
-		lazy = false,
 		opts = {
 			notify_on_error = false,
 			format_on_save = {
@@ -48,8 +47,6 @@ return {
 				lua = { "stylua" },
 				ocaml = { "ocamlformat" },
 				json = { "prettier" },
-				nix = { "alejandra" },
-				scss = { "prettier" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--

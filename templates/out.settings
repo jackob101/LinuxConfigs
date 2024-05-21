@@ -1,0 +1,4 @@
+launcher.colors.rasi.template=$HOME/dotfiles/rofi/.config/rofi/launcher/colors.rasi
+powermenu.colors.rasi.template=$HOME/dotfiles/rofi/.config/rofi/powermenu/colors.rasi
+hypr.theme.conf.template=$HOME/dotfiles/hypr/.config/hypr/theme.conf
+

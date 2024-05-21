@@ -1,0 +1,83 @@
+$bg_color: #282828;
+$bg_color_tooltip: #45403d;
+$fg_color: #d4be98;
+$fg_selected_color: #282828;
+$selected_color: #a9b665;
+$selected_color_alpha: #a9b665;
+$border_radius: 22px;
+
+* {
+  all: unset;
+}
+
+window.bar {
+  background-color: rgba(0, 0, 0, 0);
+  color: $fg_color;
+  font-size: 20px;
+  font-family: "Ubuntu Nerd Font";
+  font-weight: 400;
+  .bar_content {
+    background-color: $bg_color;
+    color: $fg_color;
+    padding: 5px;
+  }
+}
+
+.workspaces {
+  button {
+    background-color: transparent;
+    border-style: none;
+    border-radius: 5px;
+    padding: 0 15px 0 15px;
+
+    &.focused {
+      background-color: $selected_color_alpha;
+      color: $fg_selected_color;
+    }
+
+    &:hover {
+      background-color: $selected_color_alpha;
+      color: $fg_selected_color;
+    }
+  }
+}
+
+.systray {
+  button {
+    background-color: transparent;
+    border-style: none;
+    margin: 0 0px 0 5px;
+  }
+}
+
+.client-title {
+  color: $selected_color;
+}
+
+.notification {
+  color: yellow;
+}
+
+tooltip {
+  background-color: $bg_color_tooltip;
+  padding: 5px 20px 5px 20px;
+  font-size: 18px;
+  font-family: "Ubuntu Nerd Font";
+  font-weight: 500;
+  border-radius: 5px;
+  label {
+    padding: 5px 20px 5px 20px;
+  }
+}
+
+.powerbutton {
+  padding: 0 15px 0 0px;
+  border-radius: $border_radius;
+  font-size: 20px;
+  // color: rgb(238, 153, 160);
+}
+
+levelbar block,
+highlight {
+  min-height: 10px;
+}

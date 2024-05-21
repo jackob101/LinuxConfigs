@@ -1,87 +1,40 @@
+[window]
+opacity = 0.95
+
 [colors.primary]
-background = "#24273a"
-foreground = "#cad3f5"
-dim_foreground = "#8087a2"
-bright_foreground = "#cad3f5"
-
-[colors.cursor]
-text = "#24273a"
-cursor = "#f4dbd6"
-
-[colors.vi_mode_cursor]
-text = "#24273a"
-cursor = "#b7bdf8"
-
-[colors.search.matches]
-foreground = "#24273a"
-background = "#a5adcb"
-
-[colors.search.focused_match]
-foreground = "#24273a"
-background = "#a6da95"
-
-[colors.footer_bar]
-foreground = "#24273a"
-background = "#a5adcb"
-
-[colors.hints.start]
-foreground = "#24273a"
-background = "#eed49f"
-
-[colors.hints.end]
-foreground = "#24273a"
-background = "#a5adcb"
-
-[colors.selection]
-text = "#24273a"
-background = "#f4dbd6"
+background = '#282828'
+foreground = '#dfbf8e'
 
 [colors.normal]
-black = "#494d64"
-red = "#ed8796"
-green = "#a6da95"
-yellow = "#eed49f"
-blue = "#8aadf4"
-magenta = "#f5bde6"
-cyan = "#8bd5ca"
-white = "#b8c0e0"
+black = '#665c54'
+red = '#ea6962'
+green = '#a9b665'
+yellow = '#e78a4e'
+blue = '#7daea3'
+magenta = '#d3869b'
+cyan = '#89b482'
+white = '#dfbf8e'
 
 [colors.bright]
-black = "#5b6078"
-red = "#ed8796"
-green = "#a6da95"
-yellow = "#eed49f"
-blue = "#8aadf4"
-magenta = "#f5bde6"
-cyan = "#8bd5ca"
-white = "#a5adcb"
+black = '#928374'
+red = '#ea6962'
+green = '#a9b665'
+yellow = '#e3a84e'
+blue = '#7daea3'
+magenta = '#d3869b'
+cyan = '#89b482'
+white = '#dfbf8e'
 
-[colors.dim]
-black = "#494d64"
-red = "#ed8796"
-green = "#a6da95"
-yellow = "#eed49f"
-blue = "#8aadf4"
-magenta = "#f5bde6"
-cyan = "#8bd5ca"
-white = "#b8c0e0"
-
-[[colors.indexed_colors]]
-index = 16
-color = "#f5a97f"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#f4dbd6"
 [font.normal]
-family = "SFMono Nerd Font Mono"
+family = "Inconsolata Nerd Font Mono"
 style = "Regular"
 
 [font]
-offset.y = 2
+size = 14
+offset.y = 4
 
 [shell]
-program = "/bin/fish"
+program = "fish"
 
 [mouse]
 hide_when_typing = true

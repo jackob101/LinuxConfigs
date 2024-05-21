@@ -1,0 +1,16 @@
+
+* {
+  font:                       "@hydrate(font-family) 12";
+
+  background-window:          @hydrate(overlay-color);
+
+  background-window:          @hydrate(overlay-color);
+  background-normal:          @hydrate(background-color);
+  background-selected:        @hydrate(background-selected-color);
+  
+  foreground-normal:          @hydrate(foreground-color);
+  foreground-selected:        @hydrate(foreground-color);
+  foreground-placeholder:     @hydrate(foreground-color)/20%;
+
+  border-radius:              @hydrate(border-radius);
+}

@@ -1,21 +1,8 @@
 return {
 	{
-		"sainnhe/gruvbox-material",
-		priority = 1000,
-		init = function()
-			vim.g.gruvbox_material_enable_italic = true
-			vim.g.gruvbox_material_background = "medium"
-			vim.cmd.colorscheme("gruvbox-material")
-
-			local dark = vim.api.nvim_get_hl_by_name("NvimTreeNormal", true)
-			vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = dark.background, bg = dark.background })
-		end,
-	},
-	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		enabled = false,
 		init = function()
 			require("catppuccin").setup({
 				flavour = "macchiato",
