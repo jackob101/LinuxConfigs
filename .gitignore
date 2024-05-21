@@ -2,3 +2,5 @@
 .idea
 *.log
 tmp/
+wallsync_storage/*/*.png
+wallsync_storage/*/*.jpg
