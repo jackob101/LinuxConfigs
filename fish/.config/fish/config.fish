@@ -17,10 +17,12 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     fish_add_path $HOME/.local/bin/
     fish_add_path $HOME/go/bin/
+    fish_add_path $HOME/jetbrains/intellij/bin/
     set GOBIN $HOME/go/bin
 
     alias books='set book (ls $HOME/Documents/books | fzf); zathura $HOME/Documents/books/$book & disown && exit'
     alias projects=projects_fun
+    alias ajava=archlinux-java
 end
 
 

@@ -26,7 +26,7 @@ cyan = '#89b482'
 white = '#dfbf8e'
 
 [font.normal]
-family = "Inconsolata Nerd Font Mono"
+family = "Ubuntu Mono Nerd Font"
 style = "Regular"
 
 [font]
