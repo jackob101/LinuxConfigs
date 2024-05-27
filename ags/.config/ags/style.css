@@ -12,26 +12,22 @@ window.bar {
     color: #d4be98;
     padding: 5px; }
 
-.workspaces {
-  background-color: #45403d;
-  padding: 5px 10px 5px 10px;
-  border-radius: 5px; }
-  .workspaces button {
-    background-color: transparent;
-    border-style: none;
-    border-radius: 5px;
-    padding: 0 15px 0 15px; }
-    .workspaces button.focused {
-      background-color: #a9b665;
-      color: #282828; }
-    .workspaces button:hover {
-      background-color: #a9b665;
-      color: #282828; }
+.workspaces button {
+  background-color: transparent;
+  border-style: none;
+  border-radius: 5px;
+  padding: 0 15px 0 15px; }
+  .workspaces button.focused {
+    background-color: #a9b665;
+    color: #282828; }
+  .workspaces button:hover {
+    background-color: #a9b665;
+    color: #282828; }
 
 .systray button {
   background-color: transparent;
   border-style: none;
-  margin: 0 0px 0 5px; }
+  margin: 0 0px 0 0.5em; }
 
 .client-title {
   color: #a9b665; }
@@ -70,3 +66,6 @@ highlight {
 .applauncher .icon {
   min-width: 64px;
   min-height: 64px; }
+
+.launcher {
+  padding: 0 0.5em 0 0; }

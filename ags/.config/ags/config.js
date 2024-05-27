@@ -1,3 +1,4 @@
+import GLib from "gi://GLib"
 const network = await Service.import("network")
 const hyprland = await Service.import("hyprland")
 const notifications = await Service.import("notifications")
@@ -161,6 +162,17 @@ function Network() {
     })
 }
 
+function Launcher() {
+    return Widget.Button({
+        on_primary_click: () => Utils.execAsync("anyrun"),
+        child: Widget.Icon({
+            class_name: "launcher",
+            icon: GLib.get_os_info("LOGO"),
+            tooltip_text: "Launcher",
+        })
+    })
+}
+
 
 // layout of the bar
 /**
@@ -169,7 +181,10 @@ function Network() {
 function Left(monitor) {
     return Widget.Box({
         spacing: 8,
+        hpack: "start",
+        class_name: "widgets_container",
         children: [
+            Launcher(),
             Workspaces(monitor),
         ],
     })
@@ -215,16 +230,16 @@ function Bar(monitor = 0) {
     })
 }
 
-const scss = `${App.configDir}/style.scss`
+// const scss = `${App.configDir}/style.scss`
 
-// target css file
-const css = `./style.css`
-
-// make sure sassc is installed on your system
-Utils.exec(`sassc ${scss} ${css}`)
+// // target css file
+// const css = `./style.css`
+//
+// // make sure sassc is installed on your system
+// Utils.exec(`sassc ${scss} ${css}`)
 
 App.config({
-    style: css,
+    style: "./style.css",
     windows: hyprland.monitors.map(e => Bar(e.id)),
 })
 
