@@ -1,72 +1,63 @@
 * {
-  all: unset; }
+  all: unset;
+  font-size: 1.5rem;
+  color: #e2cca9;
+}
 
-window.bar {
-  background-color: rgba(0, 0, 0, 0);
-  color: #d4be98;
-  font-size: 18px;
-  font-family: "Ubuntu Nerd Font";
-  font-weight: 400; }
-  window.bar .bar_content {
-    background-color: #282828;
-    color: #d4be98;
-    padding: 5px; }
+#window,
+#match,
+#plugin,
+#main {
+  background: transparent;
+}
 
-.workspaces {
-  background-color: #45403d;
-  padding: 5px 10px 5px 10px;
-  border-radius: 5px; }
-  .workspaces button {
-    background-color: transparent;
-    border-style: none;
-    border-radius: 5px;
-    padding: 0 15px 0 15px; }
-    .workspaces button.focused {
-      background-color: #a9b665;
-      color: #282828; }
-    .workspaces button:hover {
-      background-color: #a9b665;
-      color: #282828; }
+#match.activatable {
+  border-radius: 5px;
+  padding: 0.3rem 0.9rem;
+  margin-top: 0.01rem;
+}
 
-.systray button {
-  background-color: transparent;
-  border-style: none;
-  margin: 0 0px 0 5px; }
+#match.activatable:first-child {
+  margin-top: 0.7rem;
+}
 
-.client-title {
-  color: #a9b665; }
+#match.activatable:last-child {
+  margin-bottom: 0.6rem;
+}
 
-.notification {
-  color: yellow; }
+#plugin:hover #match.activatable {
+  border-radius: 5px;
+}
 
-tooltip {
-  background-color: #45403d;
-  padding: 5px 20px 5px 20px;
-  color: #d4be98;
-  font-size: 18px;
-  font-family: "Ubuntu Nerd Font";
-  font-weight: 500;
-  border-radius: 5px; }
-  tooltip label {
-    padding: 5px 20px 5px 20px; }
+#match:selected,
+#match:hover {
+  background: #45403d;
+}
 
-.widgets_container {
-  background-color: #45403d;
-  padding: 5px 20px 5px 20px;
-  border-radius: 5px; }
+#entry {
+  background: #32302f;
+  border: 1px solid #32302f;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 0.3rem 1rem;
+}
 
-.powerbutton {
-  padding: 0 0px 0 0px;
-  border-radius: 22px;
-  font-size: 18px; }
+list>#plugin {
+  border-radius: 16px;
+  margin: 0 0.3rem;
+}
 
-levelbar block,
-highlight {
-  min-height: 10px; }
+list>#plugin:first-child {
+  margin-top: 0.3rem;
+}
 
-.applauncher .entry {
-  background-color: #000000; }
+list>#plugin:last-child {
+  margin-bottom: 0.3rem;
+}
 
-.applauncher .icon {
-  min-width: 64px;
-  min-height: 64px; }
+box#main {
+  background: #1b1b1b;
+  box-shadow: inset 0 0 0 1px #1b1b1b, 0 0 0 1px #1b1b1b;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
