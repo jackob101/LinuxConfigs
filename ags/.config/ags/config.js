@@ -5,6 +5,7 @@ const mpris = await Service.import("mpris")
 const audio = await Service.import("audio")
 const systemtray = await Service.import("systemtray")
 
+
 const date = Variable("", {
     poll: [1000, 'date "+%H:%M  %a %b %d"'],
 })
@@ -177,8 +178,9 @@ function Left(monitor) {
 function Center() {
     return Widget.Box({
         spacing: 8,
+        class_name: "widgets_container",
         children: [
-            Notification()
+            Clock(),
         ],
     })
 }
@@ -187,10 +189,10 @@ function Right() {
     return Widget.Box({
         hpack: "end",
         spacing: 20,
+        class_name: "widgets_container",
         children: [
             Network(),
             Volume(),
-            Clock(),
             SysTray(),
             Powermenu(),
         ],

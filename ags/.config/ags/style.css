@@ -4,7 +4,7 @@
 window.bar {
   background-color: rgba(0, 0, 0, 0);
   color: #d4be98;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Ubuntu Nerd Font";
   font-weight: 400; }
   window.bar .bar_content {
@@ -12,17 +12,21 @@ window.bar {
     color: #d4be98;
     padding: 5px; }
 
-.workspaces button {
-  background-color: transparent;
-  border-style: none;
-  border-radius: 5px;
-  padding: 0 15px 0 15px; }
-  .workspaces button.focused {
-    background-color: #a9b665;
-    color: #282828; }
-  .workspaces button:hover {
-    background-color: #a9b665;
-    color: #282828; }
+.workspaces {
+  background-color: #45403d;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px; }
+  .workspaces button {
+    background-color: transparent;
+    border-style: none;
+    border-radius: 5px;
+    padding: 0 15px 0 15px; }
+    .workspaces button.focused {
+      background-color: #a9b665;
+      color: #282828; }
+    .workspaces button:hover {
+      background-color: #a9b665;
+      color: #282828; }
 
 .systray button {
   background-color: transparent;
@@ -38,6 +42,7 @@ window.bar {
 tooltip {
   background-color: #45403d;
   padding: 5px 20px 5px 20px;
+  color: #d4be98;
   font-size: 18px;
   font-family: "Ubuntu Nerd Font";
   font-weight: 500;
@@ -45,11 +50,23 @@ tooltip {
   tooltip label {
     padding: 5px 20px 5px 20px; }
 
+.widgets_container {
+  background-color: #45403d;
+  padding: 5px 20px 5px 20px;
+  border-radius: 5px; }
+
 .powerbutton {
-  padding: 0 15px 0 0px;
+  padding: 0 0px 0 0px;
   border-radius: 22px;
-  font-size: 20px; }
+  font-size: 18px; }
 
 levelbar block,
 highlight {
   min-height: 10px; }
+
+.applauncher .entry {
+  background-color: #000000; }
+
+.applauncher .icon {
+  min-width: 64px;
+  min-height: 64px; }
