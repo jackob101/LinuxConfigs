@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
+vim.opt.termguicolors = true
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
@@ -64,3 +64,5 @@ vim.opt.scrolloff = 15
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+vim.opt.fillchars = { eob = " " }

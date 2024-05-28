@@ -14,14 +14,14 @@ vim.print(dark)
 -- local colors = require("catppuccin.palettes").get_palette()
 local TelescopeColor = {
 	-- TelescopeMatching = { fg = colors.flamingo }, TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
-	-- TelescopePromptPrefix = { bg = normalFloat.background },
-	-- TelescopePromptNormal = { bg = normalFloat.background },
+	TelescopePromptPrefix = { bg = bgDim },
+	TelescopePromptNormal = { bg = bgDim },
 	TelescopeResultsNormal = { bg = bgDim },
 	TelescopePreviewNormal = { bg = bgDim },
-	TelescopePromptBorder = { fg = normalFloat.background },
+	TelescopePromptBorder = { fg = bgDim, bg = bgDim },
 	TelescopeResultsBorder = { bg = bgDim, fg = bgDim },
 	TelescopePreviewBorder = { bg = bgDim, fg = bgDim },
-	-- TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+	TelescopePromptTitle = { bg = bgDim, fg = "#e2cca9" },
 	-- TelescopeResultsTitle = { fg = colors.mantle },
 	-- TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
 }
