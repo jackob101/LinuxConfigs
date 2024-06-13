@@ -1,10 +1,11 @@
 import GLib from "gi://GLib"
+import Gdk from "gi://Gdk"
 const network = await Service.import("network")
 const hyprland = await Service.import("hyprland")
 const notifications = await Service.import("notifications")
-const mpris = await Service.import("mpris")
 const audio = await Service.import("audio")
 const systemtray = await Service.import("systemtray")
+const display = Gdk.Display.get_default();
 
 
 const date = Variable("", {
@@ -33,7 +34,9 @@ function Workspaces(monitorId) {
     })
 
     const workspaces = hyprland.bind("workspaces")
-        .as(ws => ws.filter(e => e.monitorID == monitorId)
+        .as(ws => ws.filter(e => {
+            return e.monitorID == monitorId
+        })
             .sort((a, b) => a.id - b.id)
             .map(({ id }) => createWorkspaceButton(id))
         )
@@ -214,11 +217,33 @@ function Right() {
     })
 }
 
-function Bar(monitor = 0) {
+
+/**
+ * @param {string | null} connectorName
+ */
+function getGdkMonitorId(connectorName) {
+
+    if (display == null)
+        return null
+
+    const screen = display.get_default_screen();
+    for (let i = 0; i < display.get_n_monitors(); ++i) {
+        let name = screen.get_monitor_plug_name(i)
+        if (connectorName === name) {
+            return i
+        }
+    }
+}
+
+/**
+ * @param {string} connectorName
+ */
+function Bar(connectorName, monitor = 0) {
+    let gdkMonitorId = getGdkMonitorId(connectorName)
     return Widget.Window({
         name: `bar-${monitor}`, // name has to be unique
         class_name: "bar",
-        monitor,
+        monitor: gdkMonitorId == null ? monitor : gdkMonitorId,
         anchor: ["bottom", "left", "right"],
         exclusivity: "exclusive",
         child: Widget.CenterBox({
@@ -240,7 +265,7 @@ function Bar(monitor = 0) {
 
 App.config({
     style: "./style.css",
-    windows: hyprland.monitors.map(e => Bar(e.id)),
+    windows: hyprland.monitors.map(e => Bar(e.name, e.id)),
 })
 
 export { }
