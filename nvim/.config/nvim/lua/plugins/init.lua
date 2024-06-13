@@ -260,4 +260,13 @@ return {
 		-- use opts = {} for passing setup options
 		-- this is equalent to setup({}) function
 	},
+	{
+		"shortcuts/no-neck-pain.nvim",
+		config = function()
+			require("no-neck-pain").setup({
+				width = 150,
+			})
+			vim.keymap.set("n", "<leader>tp", "<CMD>:NoNeckPain<CR>", { desc = "[T]oggle no neck [P]ain" })
+		end,
+	},
 }
