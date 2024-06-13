@@ -1,10 +1,9 @@
-$bg_color: #282828;
-$bg_color_3: #45403d;
+$bg_color: #32302f;
 $bg_color_tooltip: #45403d;
 $fg_color: #d4be98;
-$fg_selected_color: #282828;
-$selected_color: #a9b665;
-$selected_color_alpha: #a9b665;
+$fg_selected_color: #a9b665;
+$selected_color: rgba(#a9b665, 0.5);
+$selected_color_alpha: rgba(#a9b665, 0.3);
 $border_radius: 22px;
 
 * {
@@ -14,30 +13,34 @@ $border_radius: 22px;
 window.bar {
   background-color: rgba(0, 0, 0, 0);
   color: $fg_color;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Ubuntu Nerd Font";
   font-weight: 400;
   .bar_content {
-    background-color: $bg_color;
+    background-color: transparent;
     color: $fg_color;
-    padding: 5px;
+    padding: 0px;
+    // box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.5);
   }
+}
+
+.separator {
+  color: rgba($fg_color, 0.5);
 }
 
 .workspaces {
   button {
     background-color: transparent;
     border-style: none;
-    border-radius: 5px;
     padding: 0 15px 0 15px;
 
     &.focused {
-      background-color: $selected_color_alpha;
+      box-shadow: 0px -2px $fg_selected_color inset;
       color: $fg_selected_color;
     }
 
     &:hover {
-      background-color: $selected_color_alpha;
+      box-shadow: 0px -2px $fg_selected_color inset;
       color: $fg_selected_color;
     }
   }
@@ -47,7 +50,7 @@ window.bar {
   button {
     background-color: transparent;
     border-style: none;
-    margin: 0 0px 0 0.5em;
+    // margin: 0 0px 0 20px;
   }
 }
 
@@ -65,7 +68,7 @@ tooltip {
   color: $fg_color;
   font-size: 18px;
   font-family: "Ubuntu Nerd Font";
-  font-weight: 500;
+  // font-weight: normal;
   border-radius: 5px;
   label {
     padding: 5px 20px 5px 20px;
@@ -73,33 +76,29 @@ tooltip {
 }
 
 .widgets_container {
-  background-color: $bg_color_3;
   padding: 5px 20px 5px 20px;
-  border-radius: 5px;
+  background-color: $bg_color;
+}
+
+.widgets_container_left {
+  border-radius: 0 20px 0 0;
+}
+
+.widgets_container_right {
+  border-radius: 20px 0 0 0;
 }
 
 .powerbutton {
-  padding: 0 0px 0 0px;
-  border-radius: $border_radius;
   font-size: 18px;
-  // color: rgb(238, 153, 160);
 }
 
-levelbar block,
-highlight {
-  min-height: 10px;
-}
-
-.applauncher {
-  .entry {
-    background-color: #000000;
+.clock {
+  .time {
+    font-size: 16px;
+    margin-bottom: -2px;
   }
-  .icon {
-    min-width: 64px;
-    min-height: 64px;
+  .date {
+    margin-top: -2px;
+    font-size: 13px;
   }
-}
-
-.launcher {
-  padding: 0 0.5em 0 0;
 }

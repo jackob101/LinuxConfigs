@@ -7,17 +7,20 @@ const audio = await Service.import("audio")
 const systemtray = await Service.import("systemtray")
 const display = Gdk.Display.get_default();
 
+const spacing = 20
+
+const time = Variable("", {
+    poll: [1000, 'date "+%H:%M"'],
+})
 
 const date = Variable("", {
-    poll: [1000, 'date "+%H:%M  %a %b %d"'],
+    poll: [1000, 'date "+%D"'],
 })
 
-const day = Variable("", {
-    poll: [10000, 'date "+%D"']
+const fullTimeDate = Variable("", {
+    poll: [1000, 'date "+%T %A %B %y"'],
 })
 
-// so to make a reuseable widget, make it a function
-// then you can simply instantiate one by calling it
 
 /**
  * @param {number} [monitorId]
@@ -48,31 +51,24 @@ function Workspaces(monitorId) {
 }
 
 function Clock() {
-    return Widget.Label({
-        class_name: "clock",
-        label: date.bind(),
-        tooltip_text: day.bind(),
-    })
-}
-
-
-// we don't need dunst or any other notification daemon
-// because the Notifications module is a notification daemon itself
-function Notification() {
-    const popups = notifications.bind("popups")
     return Widget.Box({
-        class_name: "notification",
-        visible: popups.as(p => p.length > 0),
+        vertical: true,
+        spacing: 0,
         children: [
-            Widget.Icon({
-                icon: "preferences-system-notifications-symbolic",
+            Widget.Label({
+                class_name: "time",
+                label: time.bind(),
             }),
             Widget.Label({
-                label: popups.as(p => p[0]?.summary || ""),
+                class_name: "date",
+                label: date.bind(),
             }),
         ],
+        class_name: "clock",
+        tooltip_text: fullTimeDate.bind(),
     })
 }
+
 
 function Powermenu() {
     return Widget.Button({
@@ -146,6 +142,7 @@ function SysTray() {
 
     return Widget.Box({
         children: items,
+        spacing: spacing,
         class_name: "systray"
     })
 }
@@ -171,8 +168,16 @@ function Launcher() {
         child: Widget.Icon({
             class_name: "launcher",
             icon: GLib.get_os_info("LOGO"),
+            size: 28,
             tooltip_text: "Launcher",
         })
+    })
+}
+
+function Separator() {
+    return Widget.Label({
+        class_name: "separator",
+        label: "│"
     })
 }
 
@@ -183,35 +188,29 @@ function Launcher() {
  */
 function Left(monitor) {
     return Widget.Box({
-        spacing: 8,
+        spacing: spacing,
         hpack: "start",
-        class_name: "widgets_container",
+        class_name: "widgets_container widgets_container_left",
         children: [
             Launcher(),
+            Separator(),
             Workspaces(monitor),
         ],
     })
 }
 
-function Center() {
-    return Widget.Box({
-        spacing: 8,
-        class_name: "widgets_container",
-        children: [
-            Clock(),
-        ],
-    })
-}
 
 function Right() {
     return Widget.Box({
         hpack: "end",
-        spacing: 20,
-        class_name: "widgets_container",
+        spacing: spacing,
+        class_name: "widgets_container widgets_container_right",
         children: [
             Network(),
             Volume(),
             SysTray(),
+            Separator(),
+            Clock(),
             Powermenu(),
         ],
     })
@@ -249,7 +248,7 @@ function Bar(connectorName, monitor = 0) {
         child: Widget.CenterBox({
             class_name: "bar_content",
             start_widget: Left(monitor),
-            center_widget: Center(),
+            // center_widget: Center(),
             end_widget: Right(),
         }),
     })

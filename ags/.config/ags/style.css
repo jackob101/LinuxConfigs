@@ -4,33 +4,34 @@
 window.bar {
   background-color: rgba(0, 0, 0, 0);
   color: #d4be98;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "Ubuntu Nerd Font";
   font-weight: 400; }
   window.bar .bar_content {
-    background-color: #282828;
+    background-color: transparent;
     color: #d4be98;
-    padding: 5px; }
+    padding: 0px; }
+
+.separator {
+  color: rgba(212, 190, 152, 0.5); }
 
 .workspaces button {
   background-color: transparent;
   border-style: none;
-  border-radius: 5px;
   padding: 0 15px 0 15px; }
   .workspaces button.focused {
-    background-color: #a9b665;
-    color: #282828; }
+    box-shadow: 0px -2px #a9b665 inset;
+    color: #a9b665; }
   .workspaces button:hover {
-    background-color: #a9b665;
-    color: #282828; }
+    box-shadow: 0px -2px #a9b665 inset;
+    color: #a9b665; }
 
 .systray button {
   background-color: transparent;
-  border-style: none;
-  margin: 0 0px 0 0.5em; }
+  border-style: none; }
 
 .client-title {
-  color: #a9b665; }
+  color: rgba(169, 182, 101, 0.5); }
 
 .notification {
   color: yellow; }
@@ -41,31 +42,27 @@ tooltip {
   color: #d4be98;
   font-size: 18px;
   font-family: "Ubuntu Nerd Font";
-  font-weight: 500;
   border-radius: 5px; }
   tooltip label {
     padding: 5px 20px 5px 20px; }
 
 .widgets_container {
-  background-color: #45403d;
   padding: 5px 20px 5px 20px;
-  border-radius: 5px; }
+  background-color: #32302f; }
+
+.widgets_container_left {
+  border-radius: 0 20px 0 0; }
+
+.widgets_container_right {
+  border-radius: 20px 0 0 0; }
 
 .powerbutton {
-  padding: 0 0px 0 0px;
-  border-radius: 22px;
   font-size: 18px; }
 
-levelbar block,
-highlight {
-  min-height: 10px; }
+.clock .time {
+  font-size: 16px;
+  margin-bottom: -2px; }
 
-.applauncher .entry {
-  background-color: #000000; }
-
-.applauncher .icon {
-  min-width: 64px;
-  min-height: 64px; }
-
-.launcher {
-  padding: 0 0.5em 0 0; }
+.clock .date {
+  margin-top: -2px;
+  font-size: 13px; }
