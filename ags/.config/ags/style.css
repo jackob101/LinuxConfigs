@@ -42,6 +42,7 @@ tooltip {
   color: #d4be98;
   font-size: 18px;
   font-family: "Ubuntu Nerd Font";
+  font-weight: normal;
   border-radius: 5px; }
   tooltip label {
     padding: 5px 20px 5px 20px; }
@@ -56,8 +57,8 @@ tooltip {
 .widgets_container_right {
   border-radius: 20px 0 0 0; }
 
-.powerbutton {
-  font-size: 18px; }
+.smaller-icon {
+  font-size: 19px; }
 
 .clock .time {
   font-size: 16px;
