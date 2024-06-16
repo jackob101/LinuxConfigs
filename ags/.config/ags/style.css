@@ -30,9 +30,6 @@ window.bar {
   background-color: transparent;
   border-style: none; }
 
-.client-title {
-  color: rgba(169, 182, 101, 0.5); }
-
 .notification {
   color: yellow; }
 
@@ -67,3 +64,45 @@ tooltip {
 .clock .date {
   margin-top: -2px;
   font-size: 13px; }
+
+.exit-screen {
+  background-color: #32302f;
+  color: #d4be98;
+  border: 6px solid #282828;
+  border-radius: 25px; }
+  .exit-screen .content {
+    padding: 24px; }
+  .exit-screen .left_part,
+  .exit-screen .right_part {
+    min-width: 180px; }
+  .exit-screen .right_part .close_button {
+    font-size: 54px;
+    transition-duration: 200ms;
+    transition-property: background-color;
+    border-radius: 50%;
+    background-color: rgba(40, 40, 40, 0.5); }
+    .exit-screen .right_part .close_button:hover {
+      background-color: rgba(169, 182, 101, 0.5); }
+  .exit-screen .right_part .shortcuts {
+    font-size: 16px;
+    color: rgba(212, 190, 152, 0.5);
+    background-color: rgba(40, 40, 40, 0.5);
+    padding: 25px;
+    border-radius: 25px; }
+  .exit-screen .header {
+    font-size: 86px; }
+  .exit-screen .uptime {
+    font-size: 24px; }
+  .exit-screen .power_button {
+    font-size: 32px;
+    background-color: rgba(169, 182, 101, 0.2);
+    min-width: 164px;
+    min-height: 164px;
+    border-radius: 25px;
+    padding: 12px;
+    transition-property: background-color;
+    transition-duration: 200ms; }
+    .exit-screen .power_button .power_button_icon {
+      font-size: 86px; }
+    .exit-screen .power_button:hover {
+      background-color: rgba(169, 182, 101, 0.5); }

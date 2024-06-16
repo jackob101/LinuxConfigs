@@ -1,5 +1,10 @@
 const audio = await Service.import("audio")
 
+/**
+ * @param {number} bottom
+ * @param {number} top
+ * @param {number} value
+ */
 function limitWithRange(bottom, top, value) {
     if (value >= top) {
         return top

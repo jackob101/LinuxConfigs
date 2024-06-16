@@ -1,3 +1,4 @@
+$bg_0: #282828;
 $bg_color: #32302f;
 $bg_color_tooltip: #45403d;
 $fg_color: #d4be98;
@@ -5,6 +6,7 @@ $fg_selected_color: #a9b665;
 $selected_color: rgba(#a9b665, 0.5);
 $selected_color_alpha: rgba(#a9b665, 0.3);
 $border_radius: 22px;
+$accent: #a9b665;
 
 * {
   all: unset;
@@ -54,10 +56,6 @@ window.bar {
   }
 }
 
-.client-title {
-  color: $selected_color;
-}
-
 .notification {
   color: yellow;
 }
@@ -100,5 +98,64 @@ tooltip {
   .date {
     margin-top: -2px;
     font-size: 13px;
+  }
+}
+
+.exit-screen {
+  background-color: $bg_color;
+  color: $fg_color;
+  border: 6px solid $bg_0;
+  border-radius: 25px;
+
+  .content {
+    padding: 24px;
+  }
+
+  .left_part,
+  .right_part {
+    min-width: 180px;
+  }
+
+  .right_part {
+    .close_button {
+      font-size: 54px;
+      transition-duration: 200ms;
+      transition-property: background-color;
+      border-radius: 50%;
+      background-color: rgba($bg_0, 0.5);
+      &:hover {
+        background-color: rgba($accent, 0.5);
+      }
+    }
+    .shortcuts {
+      font-size: 16px;
+      color: rgba($fg_color, 0.5);
+      background-color: rgba($bg_0, 0.5);
+      padding: 25px;
+      border-radius: 25px;
+    }
+  }
+  .header {
+    font-size: 86px;
+  }
+  .uptime {
+    font-size: 24px;
+  }
+  .power_button {
+    font-size: 32px;
+    background-color: rgba($accent, 0.2);
+    min-width: 164px;
+    min-height: 164px;
+    border-radius: 25px;
+    padding: 12px;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    .power_button_icon {
+      font-size: 86px;
+    }
+
+    &:hover {
+      background-color: rgba($accent, 0.5);
+    }
   }
 }
