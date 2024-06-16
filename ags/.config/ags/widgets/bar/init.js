@@ -1,4 +1,3 @@
-import Gdk from "gi://Gdk"
 import { Launcher } from "./launcher.js"
 import { Separator } from "./separator.js"
 import { Network } from "./network.js"
@@ -8,17 +7,15 @@ import { Workspaces } from "./workspaces.js"
 import { Clock } from "./clock.js"
 import { ExitScreen } from "./exit_screen.js"
 import { Wallpaper } from "./wallpaper.js"
-import { getGdkMonitorId } from "../../utils.js"
+import ConfigUtils from "../../utils.js"
+import variables from "../../variables.js"
 
-const spacing = 20
-
-// layout of the bar
 /**
  * @param {number} monitor
  */
 function Left(monitor) {
     return Widget.Box({
-        spacing: spacing,
+        spacing: variables.bar_spacing,
         hpack: "start",
         class_name: "widgets_container widgets_container_left",
         children: [
@@ -33,7 +30,7 @@ function Left(monitor) {
 function Right() {
     return Widget.Box({
         hpack: "end",
-        spacing: spacing,
+        spacing: variables.bar_spacing,
         class_name: "widgets_container widgets_container_right",
         children: [
             Wallpaper(),
@@ -48,15 +45,10 @@ function Right() {
 }
 
 /**
- * @param {string | null} connectorName
- */
-
-
-/**
  * @param {string} connectorName
  */
 function Bar(connectorName, monitor = 0) {
-    let gdkMonitorId = getGdkMonitorId(connectorName)
+    let gdkMonitorId = ConfigUtils.getGdkMonitorId(connectorName)
     return Widget.Window({
         name: `bar-${monitor}`, // name has to be unique
         class_name: "bar",
@@ -66,7 +58,6 @@ function Bar(connectorName, monitor = 0) {
         child: Widget.CenterBox({
             class_name: "bar_content",
             start_widget: Left(monitor),
-            // center_widget: Center(),
             end_widget: Right(),
         }),
     })

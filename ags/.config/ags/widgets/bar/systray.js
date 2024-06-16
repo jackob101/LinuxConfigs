@@ -1,5 +1,5 @@
+import variables from "../../variables.js"
 const systemtray = await Service.import("systemtray")
-const spacing = 20
 
 function SysTray() {
     const items = systemtray.bind("items")
@@ -12,7 +12,7 @@ function SysTray() {
 
     return Widget.Box({
         children: items,
-        spacing: spacing,
+        spacing: variables.bar_spacing,
         class_name: "systray"
     })
 }

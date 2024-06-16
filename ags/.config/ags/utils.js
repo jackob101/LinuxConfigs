@@ -1,6 +1,9 @@
 import Gdk from "gi://Gdk"
 const display = Gdk.Display.get_default();
 
+/**
+ * @param {string | null} connectorName
+ */
 function getGdkMonitorId(connectorName) {
 
     if (display == null)
@@ -15,4 +18,4 @@ function getGdkMonitorId(connectorName) {
     }
 }
 
-export { getGdkMonitorId }
+export default { getGdkMonitorId }
