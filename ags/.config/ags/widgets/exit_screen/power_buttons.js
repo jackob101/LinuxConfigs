@@ -42,11 +42,11 @@ function PowerButtons(operations) {
                 }
             }),
         children: [
-            CreateButton("Shutdown", "system-shutdown-symbolic", operations["shutdown"]),
-            CreateButton("Logout", "system-log-out-symbolic", operations["logout"]),
-            CreateButton("Reboot", "system-reboot-symbolic", operations["reboot"]),
-            CreateButton("Suspend", "system-suspend-symbolic", operations["sleep"]),
-            CreateButton("Lock", "system-lock-screen-symbolic", operations["lock"]),
+            CreateButton("Shutdown", "system-shutdown-symbolic", operations["shutdown"].command),
+            CreateButton("Logout", "system-log-out-symbolic", operations["logout"].command),
+            CreateButton("Reboot", "system-reboot-symbolic", operations["reboot"].command),
+            CreateButton("Suspend", "system-suspend-symbolic", operations["sleep"].command),
+            CreateButton("Lock", "system-lock-screen-symbolic", operations["lock"].command),
         ]
     })
 }
