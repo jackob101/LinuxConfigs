@@ -26,7 +26,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>x", "<CMD>:q<cr>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>x", "<CMD>:bp|bd#<cr>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>X", "<CMD>:bp|bd!#<cr>", { desc = "Close buffer Force" })
 vim.keymap.set("n", "<C-[>", goto_error_then_hint_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "<C-]>", goto_error_then_hint_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "[t", "<CMD>:tabp<cr>", { desc = "Go to next [D]iagnostic message" })
