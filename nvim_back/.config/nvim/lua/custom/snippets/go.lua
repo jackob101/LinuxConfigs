@@ -16,8 +16,6 @@ function all_trim(s)
 end
 
 ls.add_snippets("go", {
-	s("if", { t("if "), i(1), t(" {"), i(2), t("}"), i(0) }),
-	s("func", { t("func "), i(1), t("("), i(2), t(") "), i(3), t(" { "), i(4), t(" }"), i(0) }),
 	s(
 		"endpoint",
 		fmt(

@@ -21,7 +21,7 @@ cmp.setup({
 	-- No, but seriously. Please read `:help ins-completion`, it is really good!
 	mapping = cmp.mapping.preset.insert({
 		-- Select the [n]ext item
-		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-q>"] = cmp.mapping.select_next_item(),
 		-- Select the [p]revious item
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 
@@ -59,9 +59,9 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "path" },
-	},
+	-- sources = {
+	-- 	{ name = "nvim_lsp" },
+	-- 	{ name = "luasnip" },
+	-- 	{ name = "path" },
+	-- },
 })

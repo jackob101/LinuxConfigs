@@ -128,6 +128,17 @@ return {
 					-- 	},
 					-- },
 				},
+				volar = {
+					filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+					init_options = {
+						vue = {
+							hybridMode = false,
+						},
+						typescript = {
+							tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+						},
+					},
+				},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes { ...},
@@ -144,6 +155,15 @@ return {
 				},
 				tsserver = {
 					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = "/home/jackob/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server",
+								languages = { "vue" },
+								configNamespace = "typescript",
+								enableForWorkspaceTypeScriptVersions = true,
+							},
+						},
 						preferences = {
 							includeInlayParameterNameHints = "all",
 							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
