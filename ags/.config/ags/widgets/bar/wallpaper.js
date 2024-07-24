@@ -1,6 +1,6 @@
 function Wallpaper() {
     return Widget.Button({
-        on_primary_click: () => Utils.execAsync("waypaper-engine run --wayland"),
+        on_primary_click: () => Utils.execAsync("waypaper"),
         child: Widget.Icon({
             class_name: "wallpaper smaller-icon",
             icon: "computer-symbolic",
