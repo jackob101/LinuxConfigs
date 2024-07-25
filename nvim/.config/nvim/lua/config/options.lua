@@ -68,3 +68,14 @@ vim.opt.scrolloff = 15
 vim.opt.hlsearch = true
 
 vim.opt.fillchars = { eob = " " }
+
+-- TODO: remove after https://github.com/yioneko/vtsls/issues/159 gets fixed
+local notify = vim.notify
+local filtered_notify = function(...)
+    local msg, level = select(1, ...)
+    if level == vim.log.levels.ERROR and string.match(msg, "vtsls: %-%d+") then
+        return -- ignored
+    end
+    return notify(...)
+end
+vim.notify = filtered_notify
