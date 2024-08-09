@@ -32,7 +32,7 @@ const operations = {
         shortcut_key: "o",
         name: "Lock",
         //TODO: fill this later
-        command: () => Utils.execAsync("")
+        command: () => Utils.execAsync("hyprlock")
     },
     escape: {
         shortcut_key: "Escape",
@@ -93,7 +93,10 @@ function ExitScreen() {
                     let operationDetails = operations[key]
                     w.keybind([],
                         operationDetails.shortcut_key,
-                        (_self, _event) => operationDetails.command())
+                        (_self, _event) => {
+                            operationDetails.command()
+                            App.closeWindow("exit-screen")
+                        })
                 })
         }
     })
