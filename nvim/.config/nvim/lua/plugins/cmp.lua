@@ -11,6 +11,7 @@ return {
             local cmp = require("cmp")
             opts.completion = { completeopt = "noselect" }
             opts.preselect = cmp.PreselectMode.None
+            opts.experimental.ghost_text = false
             opts.mapping = vim.tbl_extend("force", opts.mapping, {
                 ["<C-n>"] = cmp.mapping.select_next_item(),
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
