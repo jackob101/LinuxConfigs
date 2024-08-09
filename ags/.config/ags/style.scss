@@ -159,3 +159,66 @@ tooltip {
     }
   }
 }
+
+window.notification-popups box.notifications {
+  padding: 0.5em;
+}
+
+.notification-popups {
+  .icon {
+    min-width: 68px;
+    min-height: 68px;
+    margin-right: 1em;
+
+    image {
+      font-size: 58px;
+      /* to center the icon */
+      margin: 5px;
+      color: $fg_color;
+    }
+
+    box {
+      min-width: 68px;
+      min-height: 68px;
+      border-radius: 7px;
+    }
+  }
+
+  .notification {
+    min-width: 350px;
+    border-radius: $border_radius;
+    padding: 1em;
+    margin: 0.5em;
+    border: 1px solid #a9b665;
+    background-color: $bg_color;
+  }
+
+  .notification.critical {
+    border: 1px solid lightcoral;
+  }
+
+  .title {
+    color: $fg_color;
+    font-size: 1.4em;
+  }
+
+  .body {
+    color: $fg_color;
+  }
+
+  .actions {
+    color: $fg_color;
+    .action-button {
+      margin: 0 0.4em;
+      margin-top: 0.8em;
+    }
+
+    .action-button:first-child {
+      margin-left: 0;
+    }
+
+    .action-button:last-child {
+      margin-right: 0;
+    }
+  }
+}

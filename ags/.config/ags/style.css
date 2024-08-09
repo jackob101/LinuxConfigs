@@ -106,3 +106,48 @@ tooltip {
       font-size: 86px; }
     .exit-screen .power_button:hover {
       background-color: rgba(169, 182, 101, 0.5); }
+
+window.notification-popups box.notifications {
+  padding: 0.5em; }
+
+.notification-popups .icon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em; }
+  .notification-popups .icon image {
+    font-size: 58px;
+    /* to center the icon */
+    margin: 5px;
+    color: #d4be98; }
+  .notification-popups .icon box {
+    min-width: 68px;
+    min-height: 68px;
+    border-radius: 7px; }
+
+.notification-popups .notification {
+  min-width: 350px;
+  border-radius: 22px;
+  padding: 1em;
+  margin: 0.5em;
+  border: 1px solid #a9b665;
+  background-color: #32302f; }
+
+.notification-popups .notification.critical {
+  border: 1px solid lightcoral; }
+
+.notification-popups .title {
+  color: #d4be98;
+  font-size: 1.4em; }
+
+.notification-popups .body {
+  color: #d4be98; }
+
+.notification-popups .actions {
+  color: #d4be98; }
+  .notification-popups .actions .action-button {
+    margin: 0 0.4em;
+    margin-top: 0.8em; }
+  .notification-popups .actions .action-button:first-child {
+    margin-left: 0; }
+  .notification-popups .actions .action-button:last-child {
+    margin-right: 0; }
