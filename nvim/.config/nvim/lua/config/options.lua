@@ -61,6 +61,8 @@ vim.opt.cursorline = false
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 15
 
+vim.o.winbar = "%=%m %f "
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
