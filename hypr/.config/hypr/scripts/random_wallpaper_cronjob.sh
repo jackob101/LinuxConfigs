@@ -1,17 +1,17 @@
 #!/bin/bash
 
 #Credits https://github.com/Horus645/swww/blob/main/example_scripts/swww_randomize.sh
- 
+
 # This script will randomly go through the files of a directory, setting it
 # up as the wallpaper at regular intervals
 #
 # NOTE: this script is in bash (not posix shell), because the RANDOM variable
 # we use is not defined in posix
 
-if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
-	echo "Usage:
+if [[ $# -lt 1 ]] || [[ ! -d $1 ]]; then
+    echo "Usage:
 	$0 <dir containing images>"
-	exit 1
+    exit 1
 fi
 
 # Edit below to control the images transition
@@ -22,13 +22,13 @@ export SWWW_TRANSITION_STEP=2
 INTERVAL=300
 
 while true; do
-	find "$1" \
-		| while read -r img; do
-			echo "$((RANDOM % 1000)):$img"
-		done \
-		| sort -n | cut -d':' -f2- \
-		| while read -r img; do
-			swww img "$img"
-			sleep $INTERVAL
-		done
+    find "$1" |
+        while read -r img; do
+            echo "$((RANDOM % 1000)):$img"
+        done |
+        sort -n | cut -d':' -f2- |
+        while read -r img; do
+            swww img "$img"
+            sleep $INTERVAL
+        done
 done
