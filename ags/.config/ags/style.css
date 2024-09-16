@@ -2,10 +2,10 @@
   all: unset; }
 
 window.bar {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(50, 48, 47, 0.9);
   color: #d4be98;
-  font-size: 20px;
-  font-family: "Ubuntu Nerd Font";
+  font-size: 12pt;
+  font-family: 'Ubuntu Nerd Font';
   font-weight: 400; }
   window.bar .bar_content {
     background-color: transparent;
@@ -16,54 +16,54 @@ window.bar {
   color: rgba(212, 190, 152, 0.5); }
 
 .workspaces button {
+  margin: 0 5pt 0 0;
   background-color: transparent;
   border-style: none;
-  padding: 0 15px 0 15px; }
+  font-size: 0pt;
+  min-width: 10pt;
+  min-height: 10pt;
+  background-color: rgba(212, 190, 152, 0.2); }
+  .workspaces button.occupied {
+    background-color: rgba(128, 170, 158, 0.8); }
   .workspaces button.focused {
-    box-shadow: 0px -2px #a9b665 inset;
-    color: #a9b665; }
+    background-color: #a9b665;
+    min-width: 20pt; }
   .workspaces button:hover {
-    box-shadow: 0px -2px #a9b665 inset;
-    color: #a9b665; }
+    background-color: #a9b665; }
+
+.launcher {
+  font-size: 18pt; }
 
 .systray button {
   background-color: transparent;
   border-style: none; }
-
-.notification {
-  color: yellow; }
 
 tooltip {
   background-color: #45403d;
   padding: 5px 20px 5px 20px;
   color: #d4be98;
   font-size: 18px;
-  font-family: "Ubuntu Nerd Font";
+  font-family: 'Ubuntu Nerd Font';
   font-weight: normal;
   border-radius: 5px; }
   tooltip label {
     padding: 5px 20px 5px 20px; }
 
 .widgets_container {
-  padding: 5px 20px 5px 20px;
-  background-color: #32302f; }
-
-.widgets_container_left {
-  border-radius: 0 20px 0 0; }
-
-.widgets_container_right {
-  border-radius: 20px 0 0 0; }
+  padding: 5pt 10pt 5pt 10pt; }
 
 .smaller-icon {
-  font-size: 19px; }
+  font-size: 15pt; }
+
+.bigger-icon {
+  font-size: 18pt;
+  margin: -5pt; }
 
 .clock .time {
-  font-size: 16px;
-  margin-bottom: -2px; }
+  font-size: 12pt; }
 
-.clock .date {
-  margin-top: -2px;
-  font-size: 13px; }
+.powerbutton {
+  color: #f2594b; }
 
 .exit-screen {
   background-color: #32302f;
@@ -82,7 +82,7 @@ tooltip {
     border-radius: 50%;
     background-color: rgba(40, 40, 40, 0.5); }
     .exit-screen .right_part .close_button:hover {
-      background-color: rgba(169, 182, 101, 0.5); }
+      background-color: rgba(242, 89, 75, 0.5); }
   .exit-screen .right_part .shortcuts {
     font-size: 16px;
     color: rgba(212, 190, 152, 0.5);
