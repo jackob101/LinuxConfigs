@@ -57,7 +57,7 @@ const definedWorkspaces = [
 /**
  * @param {number} id
  */
-function createWorkspaceButton(id, activeId) {
+function createWorkspaceButton(id, binds, monitorId) {
     let emptyBinding = hyprland.bind('workspaces').as((workspaces) => {
         let matchingWorkspace = workspaces.find((e) => e.id == id)
         if (
@@ -68,9 +68,14 @@ function createWorkspaceButton(id, activeId) {
         }
         return 'occupied'
     })
-    let activeBinding = activeId.as((i) => `${i === id ? 'focused' : ''}`)
+    let activeWorkspaceBinding = binds.as((monitors) => {
+        const matching = monitors.find(
+            (e) => e.id == monitorId && e.activeWorkspaceId === id
+        )
+        return matching != null ? 'focused' : ''
+    })
     let classNames = Utils.merge(
-        [emptyBinding, activeBinding],
+        [emptyBinding, activeWorkspaceBinding],
         (a, b) => a + ' ' + b
     )
 
@@ -87,14 +92,21 @@ function createWorkspaceButton(id, activeId) {
  * @param {number} monitorId
  */
 function Workspaces(monitorId) {
-    const activeId = hyprland.active.workspace.bind('id')
+    const activeWorkspace = hyprland.bind('monitors').as((monitors) => {
+        return monitors.map((e) => {
+            return {
+                id: e.id,
+                activeWorkspaceId: e.activeWorkspace.id,
+            }
+        })
+    })
 
     const workspaces = definedWorkspaces
         .filter((e) => {
             return e.monitorId == monitorId
         })
         .sort((a, b) => a.id - b.id)
-        .map(({ id }) => createWorkspaceButton(id, activeId))
+        .map(({ id }) => createWorkspaceButton(id, activeWorkspace, monitorId))
 
     return Widget.Box({
         vpack: 'center',
