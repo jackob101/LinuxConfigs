@@ -126,7 +126,7 @@ window.notification-popups box.notifications {
 
 .notification-popups .notification {
   min-width: 350px;
-  border-radius: 22px;
+  border-radius: 0px;
   padding: 1em;
   margin: 0.5em;
   border: 1px solid #a9b665;
