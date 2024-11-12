@@ -1,3 +1,4 @@
+import ConfigUtils from '../../utils.js'
 const hyprland = await Service.import('hyprland')
 
 // Credits go to Aylur. https://github.com/Aylur/ags/tree/main/example/notification-popups
@@ -107,11 +108,19 @@ function NotificationPopups() {
         onDismissed,
         'dismissed'
     )
-    const activeIdBind = hyprland.active.bind('monitor').as((e) => e.id)
+    let gdkMonitorId = hyprland.active.bind('monitor').as((e) => {
+        const found = hyprland.monitors.find(
+            (mon) => mon.id === ConfigUtils.getGdkMonitorId(e.name)
+        )
+        if (found === undefined) {
+            return 0
+        }
+        return found.id
+    })
 
     return Widget.Window({
-        monitor: activeIdBind,
-        name: activeIdBind.as((e) => `notifications${e}`),
+        monitor: gdkMonitorId,
+        name: gdkMonitorId.as((e) => `notifications${e}`),
         class_name: 'notification-popups',
         anchor: ['top', 'right'],
         layer: 'overlay',
