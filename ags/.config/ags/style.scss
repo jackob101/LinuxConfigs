@@ -18,18 +18,23 @@ $accent2: #80aa9e;
 }
 
 .icon {
-    font-size: 20pt;
+    font-size: 18pt;
+    color: $fg_color;
 }
 
 .icon-18 {
     font-size: 18pt;
 }
 
+.icon-15 {
+    font-size: 15pt;
+}
+
 tooltip {
     background-color: $bg_color;
     padding: 5px 20px 5px 20px;
     color: $fg_color;
-    font-size: 12pt;
+    font-size: 14pt;
     font-family: "Ubuntu Nerd Font";
     font-weight: normal;
     // border-radius: 5px;
@@ -58,13 +63,13 @@ window.bar {
     }
 
     .workspaces {
-        margin: 5px 5pt 5pt 0;
+        margin: 8pt 5pt 8pt 0;
         background-color: transparent;
         border-style: none;
         button {
             font-size: 0pt;
-            min-width: 12pt;
-            min-height: 12pt;
+            min-width: 10pt;
+            min-height: 10pt;
             background-color: transparentize($fg_color, 0.8);
             transition: background-color linear 0.2s;
             &.occupied {
@@ -90,17 +95,41 @@ window.bar {
         font-size: 20px;
     }
 
-    transition: color linear 0.4s;
-    .toggle:hover {
+    .toggle {
+        margin: 0;
+        icon {
+            transition: color linear 0.4s;
+        }
+        &:hover icon {
+            transition: color linear 0.4s;
+            color: transparentize($accent1, 0.2);
+        }
+    }
+}
+
+.volume {
+    icon {
+        transition: color linear 0.4s;
+    }
+    &:hover icon {
         transition: color linear 0.4s;
         color: transparentize($accent1, 0.2);
     }
 }
 
-.volume {
-    transition: color linear 0.4s;
-    &:hover {
-        transition: color linear 0.4s;
-        color: transparentize($accent1, 0.2);
+.notification-container {
+    box {
+    }
+    .notification {
+        padding: 1rem;
+        background-color: black;
+        min-width: 200pt;
+        min-height: 50pt;
+        transition-duration: 0;
+
+        label {
+            font-size: 12pt;
+            font-family: "Ubuntu Nerd Font";
+        }
     }
 }

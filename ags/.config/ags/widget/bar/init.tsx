@@ -6,6 +6,7 @@ import Workspaces from "./modules/workspaces";
 import Clock from "./modules/clock";
 import { SysTray } from "./modules/systray";
 import { Volume } from "./modules/volume";
+import { Network } from "./modules/network";
 
 export default function Bar(hyprlandMonitor: Hyprland.Monitor) {
     const gdkMonitor = utils.getGdkMonitorId(hyprlandMonitor.get_name());
@@ -28,6 +29,7 @@ export default function Bar(hyprlandMonitor: Hyprland.Monitor) {
                 <Workspaces hyprlandMonitor={hyprlandMonitor} />
                 <Clock />
                 <box spacing={10} halign={Gtk.Align.END}>
+                    <Network />
                     <Volume />
                     <SysTray />
                 </box>

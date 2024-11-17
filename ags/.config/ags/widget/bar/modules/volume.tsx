@@ -23,11 +23,11 @@ function Volume() {
         return null;
     }
     const icons = [
-        { threshold: 101, icon: "overamplified" },
-        { threshold: 67, icon: "high" },
-        { threshold: 34, icon: "medium" },
-        { threshold: 1, icon: "low" },
-        { threshold: 0, icon: "muted" },
+        { threshold: 101, icon: "volume-high-symbolic" },
+        { threshold: 67, icon: "volume-medium-symbolic" },
+        { threshold: 34, icon: "volume-low-symbolic" },
+        { threshold: 1, icon: "volume-low-symbolic" },
+        { threshold: 0, icon: "volume-mute-symbolic" },
     ];
 
     function clickHandler(_: any, event: Astal.ClickEvent) {
@@ -63,7 +63,7 @@ function Volume() {
         [volumeBind, muteBind],
         (volume, isMute) => {
             const icon = isMute
-                ? { threshold: 0, icon: "muted" }
+                ? { threshold: 0, icon: "volume-mute-symbolic" }
                 : icons.find((entry) => {
                       if (entry.threshold <= volume * 100) {
                           return entry;
@@ -72,7 +72,7 @@ function Volume() {
             if (icon === null || icon === undefined) {
                 return "";
             }
-            return `audio-volume-${icon.icon}-symbolic`;
+            return icon.icon;
         },
     );
 
@@ -81,13 +81,11 @@ function Volume() {
     });
 
     const icon = (
-        <box>
-            <icon
-                className="icon-18"
-                tooltipText={volumeDisplayBind}
-                icon={bind(iconBind)}
-            />
-        </box>
+        <icon
+            className="icon"
+            tooltipText={volumeDisplayBind}
+            icon={bind(iconBind)}
+        />
     );
 
     return (

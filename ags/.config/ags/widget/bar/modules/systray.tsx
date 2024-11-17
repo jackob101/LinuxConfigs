@@ -64,7 +64,7 @@ function SysTray() {
             <icon
                 className="icon"
                 icon={showTray((e) =>
-                    e ? "pan-end-symbolic" : "pan-start-symbolic",
+                    e ? "chevron-right-symbolic" : "chevron-left-symbolic",
                 )}
             />
         </button>
