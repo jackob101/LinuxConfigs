@@ -33,8 +33,10 @@ style = "Regular"
 size = 14
 offset.y = 4
 
-[shell]
+[terminal.shell]
 program = "fish"
 
 [mouse]
 hide_when_typing = true
+
+[terminal]
