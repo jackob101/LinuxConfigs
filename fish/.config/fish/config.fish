@@ -19,6 +19,7 @@ if status is-interactive
     fish_add_path $HOME/go/bin/
     fish_add_path $HOME/jetbrains/intellij/bin/
     fish_add_path $HOME/.local/share/coursier/bin/
+    fish_add_path $HOME/.cargo/bin/
     set GOBIN $HOME/go/bin
 
     alias books='set book (ls $HOME/Documents/books | fzf); zathura $HOME/Documents/books/$book & disown && exit'
