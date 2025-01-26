@@ -28,7 +28,7 @@ while true; do
         done |
         sort -n | cut -d':' -f2- |
         while read -r img; do
-            swww img "$img"
+            source $HOME/.config/hypr/scripts/hyprpaper_random_wallpaper.sh
             sleep $INTERVAL
         done
 done
