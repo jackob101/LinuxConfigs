@@ -1,3 +1,5 @@
+vim.g.user_emmet_leader_key = "<C-Z>"
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
@@ -18,6 +20,8 @@ vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
+vim.opt.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -27,7 +31,8 @@ vim.schedule(function()
 end)
 
 -- Enable break indent
-vim.opt.breakindent = true
+vim.opt.wrap = false
+vim.opt.breakindent = false
 
 -- Save undo history
 vim.opt.undofile = true

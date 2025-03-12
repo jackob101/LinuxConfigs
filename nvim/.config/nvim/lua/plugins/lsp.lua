@@ -1,5 +1,10 @@
 return {
 	{
+		"mattn/emmet-vim",
+		ft = { "svelte", "html", "vue", "php" },
+		config = function() end,
+	},
+	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
 		"folke/lazydev.nvim",
@@ -43,8 +48,8 @@ return {
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
 						"[W]orkspace [S]ymbols"
 					)
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+					map("<leader>lr", vim.lsp.buf.rename, "[L]sp [R]ename")
+					map("<leader>la", vim.lsp.buf.code_action, "[L]sp Code [A]ction", { "n", "x" })
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -76,6 +81,16 @@ return {
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
 					end
+					if client and client.name == "svelte" then
+						vim.api.nvim_create_autocmd("BufWritePost", {
+							pattern = { "*.js", "*.ts" },
+							group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
+							callback = function(ctx)
+								-- Here use ctx.match instead of ctx.file
+								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+							end,
+						})
+					end
 				end,
 			})
 
@@ -87,6 +102,9 @@ return {
 				end
 				vim.diagnostic.config({ signs = { text = diagnostic_signs } })
 			end
+
+			require("mason").setup()
+			local mason_registry = require("mason-registry")
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
@@ -117,16 +135,22 @@ return {
 						},
 					},
 				},
-				-- pyright = {},
-				-- rust_analyzer = {},
-				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-				--
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
-				--
+				-- Vue 3
+				volar = {},
+				-- TypeScript
+				ts_ls = {
+					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vim.fn.stdpath("data")
+									.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+								languages = { "vue" },
+							},
+						},
+					},
+				},
 
 				lua_ls = {
 					-- cmd = { ... },
@@ -141,6 +165,12 @@ return {
 							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
+				},
+				intelephense = {
+					root_dir = function()
+						return vim.loop.cwd()
+					end,
+					settings = {},
 				},
 			}
 
