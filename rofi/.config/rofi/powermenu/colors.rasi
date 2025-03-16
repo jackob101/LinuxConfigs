@@ -1,0 +1,13 @@
+* {
+    border-radius:               5;
+
+    prompt-font:                 "Ubuntu Nerd Font Normal 72";
+    textbox-font:                "Ubuntu Nerd Font Normal 14";
+    element-text-font:           "SFMono Nerd Font Mono 74";
+
+    background-window:           black/60%;
+    background-normal:           white/10%;
+    background-selected:         rgba(158, 206, 106, 0.5);
+    foreground-normal:           white;
+    foreground-selected:         white;
+}

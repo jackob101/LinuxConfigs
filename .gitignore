@@ -2,3 +2,9 @@
 .idea
 *.log
 tmp/
+wallpaper_storage/**/*.png
+wallpaper_storage/**/*.jpg
+
+ags/.config/ags/@girs
+ags/.config/ags/env.d.ts
+ags/.config/ags/tsconfig.json

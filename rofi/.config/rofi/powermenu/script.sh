@@ -37,20 +37,16 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	if [[ $1 == '--shutdown' ]]; then
-		# systemctl poweroff
-		echo "hello"
+		systemctl poweroff
 	elif [[ $1 == '--reboot' ]]; then
-		# systemctl reboot
-		echo "hello"
+		systemctl reboot
 	elif [[ $1 == '--suspend' ]]; then
-		# mpc -q pause
-		# amixer set Master mute
-		# systemctl suspend
-		echo "hello"
+		mpc -q pause
+		amixer set Master mute
+		systemctl suspend
 	elif [[ $1 == '--logout' ]]; then
 		if [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
-			# hyprctl dispatch exit
-			echo "hello"
+			hyprctl dispatch exit
 		fi
 	fi
 }

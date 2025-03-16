@@ -1,0 +1,21 @@
+layout {
+    default_tab_template{
+      // the default zellij tab-bar and status bar plugins
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+    tab name="1|editor" focus=true{
+        pane size=1 borderless=true {
+            command "nvim"
+        }
+    }
+    tab name="2|git"{
+        pane borderless=true command="lazygit"
+    }
+    tab name="3|term"
+}

@@ -4,24 +4,15 @@
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
+@import "colors.rasi"
+
 * {
-    font: "Ubuntu 12";
-
-    background-window:           black/60%;
-    background-normal:           white/10%;
-    background-highlight:        white/20%;
-    background-selected:         rgba(158, 206, 106, 0.5);
-    foreground-normal:           white;
-    foreground-selected:         white;
-    foreground-placeholder:      white/20%;
-
-    border-radius:              5px;
-
     background-color:           transparent;
     text-color:                 var(foreground-normal);
     padding:                    0px;
     margin:                     0px;
 }
+
 
 window {
     transparency:               "real";
@@ -42,8 +33,6 @@ inputbar {
   spacing:  10px;
 
   border:         1px;
-  border-radius:  var(border-radius);
-  border-color:   var(background-highlight);
 
   children: [icon-search,entry];
 }

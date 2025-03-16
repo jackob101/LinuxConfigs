@@ -1,0 +1,135 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$theme_fg_color: "@theme_fg_color";
+$theme_bg_color: "@theme_bg_color";
+$bg_0: #282828;
+$bg_color: #32302f;
+$bg_color_tooltip: #45403d;
+$fg_color: #d4be98;
+$fg_selected_color: #a9b665;
+$selected_color: rgba(#a9b665, 0.5);
+$selected_color_alpha: rgba(#a9b665, 0.3);
+$border_radius: 0px;
+$red: #f2594b;
+$accent1: #a9b665;
+$accent2: #80aa9e;
+
+* {
+    all: unset;
+}
+
+.icon {
+    font-size: 18pt;
+    color: $fg_color;
+}
+
+.icon-18 {
+    font-size: 18pt;
+}
+
+.icon-15 {
+    font-size: 15pt;
+}
+
+tooltip {
+    background-color: $bg_color;
+    padding: 5px 20px 5px 20px;
+    color: $fg_color;
+    font-size: 14pt;
+    font-family: "Ubuntu Nerd Font";
+    font-weight: normal;
+    // border-radius: 5px;
+    border: 1pt solid $accent1;
+    label {
+        padding: 5px 20px 5px 20px;
+    }
+}
+
+window.bar {
+    background-color: transparentize($bg_color, 0.1);
+    color: $fg_color;
+    font-size: 12pt;
+    font-family: "Ubuntu Nerd Font";
+    font-weight: 400;
+    background: transparent;
+
+    > centerbox {
+        background: #{$theme_bg_color};
+        padding: 0 1rem;
+    }
+
+    button {
+        border-radius: 0px;
+        margin: 2px;
+    }
+
+    .workspaces {
+        margin: 8pt 5pt 8pt 0;
+        background-color: transparent;
+        border-style: none;
+        button {
+            font-size: 0pt;
+            min-width: 10pt;
+            min-height: 10pt;
+            background-color: transparentize($fg_color, 0.8);
+            transition: background-color linear 0.2s;
+            &.occupied {
+                background-color: transparentize($accent2, 0.2);
+            }
+
+            &.active {
+                background-color: $fg_selected_color;
+                min-width: 20pt;
+            }
+
+            &:hover {
+                background-color: $fg_selected_color;
+                transition: background-color linear 0.2s;
+                color: transparentize($accent1, 0.2);
+            }
+        }
+    }
+}
+
+.systray {
+    .item * {
+        font-size: 20px;
+    }
+
+    .toggle {
+        margin: 0;
+        icon {
+            transition: color linear 0.4s;
+        }
+        &:hover icon {
+            transition: color linear 0.4s;
+            color: transparentize($accent1, 0.2);
+        }
+    }
+}
+
+.volume {
+    icon {
+        transition: color linear 0.4s;
+    }
+    &:hover icon {
+        transition: color linear 0.4s;
+        color: transparentize($accent1, 0.2);
+    }
+}
+
+.notification-container {
+    box {
+    }
+    .notification {
+        padding: 1rem;
+        background-color: black;
+        min-width: 200pt;
+        min-height: 50pt;
+        transition-duration: 0;
+
+        label {
+            font-size: 12pt;
+            font-family: "Ubuntu Nerd Font";
+        }
+    }
+}

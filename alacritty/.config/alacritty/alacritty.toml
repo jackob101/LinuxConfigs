@@ -1,0 +1,98 @@
+[window]
+opacity = 1 
+
+# [colors.primary]
+# background = '#282828'
+# foreground = '#dfbf8e'
+#
+# [colors.normal]
+# black = '#665c54'
+# red = '#ea6962'
+# green = '#a9b665'
+# yellow = '#e78a4e'
+# blue = '#7daea3'
+# magenta = '#d3869b'
+# cyan = '#89b482'
+# white = '#dfbf8e'
+#
+# [colors.bright]
+# black = '#928374'
+# red = '#ea6962'
+# green = '#a9b665'
+# yellow = '#e3a84e'
+# blue = '#7daea3'
+# magenta = '#d3869b'
+# cyan = '#89b482'
+# white = '#dfbf8e'
+
+# [colors.primary]
+# background = '#2d353b'
+# foreground = '#d3c6aa'
+#
+# # Normal colors
+# [colors.normal]
+# black   = '#475258'
+# red     = '#e67e80'
+# green   = '#a7c080'
+# yellow  = '#dbbc7f'
+# blue    = '#7fbbb3'
+# magenta = '#d699b6'
+# cyan    = '#83c092'
+# white   = '#d3c6aa'
+#
+# # Bright colors
+# [colors.bright]
+# black   = '#475258'
+# red     = '#e67e80'
+# green   = '#a7c080'
+# yellow  = '#dbbc7f'
+# blue    = '#7fbbb3'
+# magenta = '#d699b6'
+# cyan    = '#83c092'
+# white   = '#d3c6aa'
+
+# Colors (One Dark)
+
+# Default colors
+[colors.primary]
+background = '#282c34'
+foreground = '#abb2bf'
+
+# Normal colors
+[colors.normal]
+black   = '#1e2127'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#abb2bf'
+
+# Bright colors
+[colors.bright]
+black   = '#5c6370'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#ffffff'
+
+[font.normal]
+family = "JetBrainsMonoNerdFont"
+style = "Regular"
+
+[font]
+size = 14
+offset.y = 3
+offset.x = 0
+
+[terminal.shell]
+program = "fish"
+
+[mouse]
+hide_when_typing = true
+
+[terminal]

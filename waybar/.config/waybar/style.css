@@ -4,17 +4,17 @@
   font-size: 16; }
 
 window#waybar {
-  color: #ffffff;
+  color: #dcd7ba;
   background: transparent; }
 
 #custom-launcher {
   padding-left: 15px;
   padding-right: 15px;
   font-size: 26;
-  background: rgba(0, 0, 0, 0.8); }
+  background: #1f1f28; }
 
 #r-launcher {
-  border-left: 15 solid rgba(0, 0, 0, 0.8);
+  border-left: 15 solid #1f1f28;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
@@ -22,17 +22,17 @@ window#waybar {
 
 #l-workspaces {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 35 solid #2A2A33;
   margin-right: 0;
   background: transparent;
   min-height: 0px; }
 
 #workspaces {
   padding: 0 10px;
-  background: rgba(0, 0, 0, 0.5); }
+  background: #2A2A33; }
 
 #r-workspaces {
-  border-left: 15 solid rgba(0, 0, 0, 0.5);
+  border-left: 15 solid #2A2A33;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
@@ -40,17 +40,17 @@ window#waybar {
 
 #l-system-info {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 35 solid #2A2A33;
   margin-right: 0;
   background: transparent;
   min-height: 0px; }
 
 #system-info {
   padding: 0 10px;
-  background: rgba(0, 0, 0, 0.5); }
+  background: #2A2A33; }
 
 #r-system-info {
-  border-left: 15 solid rgba(0, 0, 0, 0.5);
+  border-left: 15 solid #2A2A33;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
@@ -58,16 +58,16 @@ window#waybar {
 
 #l-tray {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.8);
+  border-bottom: 35 solid #1f1f28;
   margin-right: 0;
   background: transparent;
   min-height: 0px; }
 
 #tray {
-  background: rgba(0, 0, 0, 0.8); }
+  background: #1f1f28; }
 
 #r-tray {
-  border-left: 15 solid rgba(0, 0, 0, 0.8);
+  border-left: 15 solid #1f1f28;
   border-bottom: 35 solid transparent;
   margin-right: -15;
   background: transparent;
@@ -75,19 +75,20 @@ window#waybar {
 
 #l-powermenu {
   border-left: 15 solid transparent;
-  border-bottom: 35 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 35 solid #2A2A33;
   margin-right: 0;
   background: transparent;
   min-height: 0px; }
 
 #custom-powermenu {
-  background: rgba(0, 0, 0, 0.5);
+  background: #2A2A33;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+  color: #dcd7ba; }
 
 #workspaces button {
   padding: 0 10px;
-  color: #ffffff;
+  color: #dcd7ba;
   margin: 0.3em 0;
   border-radius: 2px; }
   #workspaces button:hover {
@@ -105,7 +106,7 @@ window#waybar {
 #wireplumber,
 #tray {
   padding: 0 10px;
-  color: #ffffff; }
+  color: #dcd7ba; }
 
 #tray > .passive {
   -gtk-icon-effect: dim; }

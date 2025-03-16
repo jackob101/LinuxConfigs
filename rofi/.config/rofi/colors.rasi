@@ -1,0 +1,12 @@
+{
+  font-family:                "Ubuntu Nerd Font Normal";
+  font-family-nf:             "SFMono Nerd Font Mono";
+
+  overlay-color:              black/60%;
+  background-color:           white/5%;
+  background-highlight-color: rgba(158, 206, 106, 0.5);
+  
+  foreground-color:           white;
+  foreground-highlight-color: white;
+  foreground-accent-color:    rgba(158, 206, 106, 0.5);
+}

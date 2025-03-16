@@ -1,8 +1,8 @@
-$custom-launcher: rgba(0, 0, 0, 0.8);
-$workspaces: rgba(0, 0, 0, 0.5);
-$system-info: rgba(0, 0, 0, 0.5);
-$tray: rgba(0, 0, 0, 0.8);
-$powermenu: rgba(0, 0, 0, 0.5);
+$custom-launcher: #1f1f28;
+$workspaces: #2A2A33;
+$system-info: #2A2A33;
+$tray: #1f1f28;
+$powermenu: #2A2A33;
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -11,7 +11,7 @@ $powermenu: rgba(0, 0, 0, 0.5);
 }
 
 window#waybar {
-  color: #ffffff;
+  color: #dcd7ba;
   background: transparent;
 }
 
@@ -41,6 +41,7 @@ window#waybar {
 #workspaces {
   padding: 0 10px;
   background: $workspaces;
+
 }
 
 #r-workspaces {
@@ -104,12 +105,13 @@ window#waybar {
   background: $powermenu;
   padding-left: 15px;
   padding-right: 15px;
+  color: #dcd7ba;
 }
 
 #workspaces {
   button {
     padding: 0 10px;
-    color: #ffffff;
+    color: #dcd7ba;
     margin: 0.3em 0;
     border-radius: 2px;
 
@@ -133,7 +135,7 @@ window#waybar {
 #wireplumber,
 #tray {
   padding: 0 10px;
-  color: #ffffff;
+  color: #dcd7ba;
 }
 
 #tray > .passive {

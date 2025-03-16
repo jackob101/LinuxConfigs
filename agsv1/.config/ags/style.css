@@ -1,0 +1,153 @@
+* {
+  all: unset; }
+
+window.bar {
+  background-color: rgba(50, 48, 47, 0.9);
+  color: #d4be98;
+  font-size: 12pt;
+  font-family: 'Ubuntu Nerd Font';
+  font-weight: 400; }
+  window.bar .bar_content {
+    background-color: transparent;
+    color: #d4be98;
+    padding: 0px; }
+
+.separator {
+  color: rgba(212, 190, 152, 0.5); }
+
+.workspaces button {
+  margin: 0 5pt 0 0;
+  background-color: transparent;
+  border-style: none;
+  font-size: 0pt;
+  min-width: 10pt;
+  min-height: 10pt;
+  background-color: rgba(212, 190, 152, 0.2); }
+  .workspaces button.occupied {
+    background-color: rgba(128, 170, 158, 0.8); }
+  .workspaces button.focused {
+    background-color: #a9b665;
+    min-width: 20pt; }
+  .workspaces button:hover {
+    background-color: #a9b665; }
+
+.launcher {
+  font-size: 18pt; }
+
+.systray button {
+  background-color: transparent;
+  border-style: none; }
+
+tooltip {
+  background-color: #45403d;
+  padding: 5px 20px 5px 20px;
+  color: #d4be98;
+  font-size: 18px;
+  font-family: 'Ubuntu Nerd Font';
+  font-weight: normal;
+  border-radius: 5px; }
+  tooltip label {
+    padding: 5px 20px 5px 20px; }
+
+.widgets_container {
+  padding: 5pt 10pt 5pt 10pt; }
+
+.smaller-icon {
+  font-size: 15pt; }
+
+.bigger-icon {
+  font-size: 18pt;
+  margin: -5pt; }
+
+.clock .time {
+  font-size: 12pt; }
+
+.powerbutton {
+  color: #f2594b; }
+
+.exit-screen {
+  background-color: #32302f;
+  color: #d4be98;
+  border: 6px solid #282828;
+  border-radius: 25px; }
+  .exit-screen .content {
+    padding: 24px; }
+  .exit-screen .left_part,
+  .exit-screen .right_part {
+    min-width: 180px; }
+  .exit-screen .right_part .close_button {
+    font-size: 54px;
+    transition-duration: 200ms;
+    transition-property: background-color;
+    border-radius: 50%;
+    background-color: rgba(40, 40, 40, 0.5); }
+    .exit-screen .right_part .close_button:hover {
+      background-color: rgba(242, 89, 75, 0.5); }
+  .exit-screen .right_part .shortcuts {
+    font-size: 16px;
+    color: rgba(212, 190, 152, 0.5);
+    background-color: rgba(40, 40, 40, 0.5);
+    padding: 25px;
+    border-radius: 25px; }
+  .exit-screen .header {
+    font-size: 86px; }
+  .exit-screen .uptime {
+    font-size: 24px; }
+  .exit-screen .power_button {
+    font-size: 32px;
+    background-color: rgba(169, 182, 101, 0.2);
+    min-width: 164px;
+    min-height: 164px;
+    border-radius: 25px;
+    padding: 12px;
+    transition-property: background-color;
+    transition-duration: 200ms; }
+    .exit-screen .power_button .power_button_icon {
+      font-size: 86px; }
+    .exit-screen .power_button:hover {
+      background-color: rgba(169, 182, 101, 0.5); }
+
+window.notification-popups box.notifications {
+  padding: 0.5em; }
+
+.notification-popups .icon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em; }
+  .notification-popups .icon image {
+    font-size: 58px;
+    /* to center the icon */
+    margin: 5px;
+    color: #d4be98; }
+  .notification-popups .icon box {
+    min-width: 68px;
+    min-height: 68px;
+    border-radius: 7px; }
+
+.notification-popups .notification {
+  min-width: 350px;
+  border-radius: 0px;
+  padding: 1em;
+  margin: 0.5em;
+  border: 1px solid #a9b665;
+  background-color: #32302f; }
+
+.notification-popups .notification.critical {
+  border: 1px solid lightcoral; }
+
+.notification-popups .title {
+  color: #d4be98;
+  font-size: 1.4em; }
+
+.notification-popups .body {
+  color: #d4be98; }
+
+.notification-popups .actions {
+  color: #d4be98; }
+  .notification-popups .actions .action-button {
+    margin: 0 0.4em;
+    margin-top: 0.8em; }
+  .notification-popups .actions .action-button:first-child {
+    margin-left: 0; }
+  .notification-popups .actions .action-button:last-child {
+    margin-right: 0; }
