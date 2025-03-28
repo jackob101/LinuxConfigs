@@ -59,7 +59,20 @@ return {
 			)
 			vim.keymap.set("n", "<leader>sw", ivy_style(builtin.grep_string), { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>sg", ivy_style(builtin.live_grep), { desc = "[S]earch by [G]rep" })
-			vim.keymap.set("n", "<leader>sd", ivy_style(builtin.diagnostics), { desc = "[S]earch [D]iagnostics" })
+			vim.keymap.set(
+				"n",
+				"<leader>sD",
+				ivy_style(builtin.diagnostics),
+				{ desc = "[S]earch workspace [D]iagnostics" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>sd",
+				ivy_style(function()
+					builtin.diagnostics({ bufnr = 0 })
+				end),
+				{ desc = "[S]earch buffer [D]iagnostics" }
+			)
 			vim.keymap.set("n", "<leader>sr", ivy_style(builtin.resume), { desc = "[S]earch [R]esume" })
 			vim.keymap.set(
 				"n",

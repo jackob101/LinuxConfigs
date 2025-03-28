@@ -68,3 +68,36 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+--
+vim.o.updatetime = 250
+-- vim.cmd(
+-- 	[[autocmd CursorHold,CursorHoldI * lua ]]
+-- )
+local function lspSymbol(name, icon)
+	vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, numhl = "DiagnosticDefault" .. name })
+end
+lspSymbol("Hint", "")
+lspSymbol("Warn", "")
+lspSymbol("Error", "")
+
+vim.diagnostic.config({
+	virtual_text = false,
+	underline = true,
+	severity_sort = true,
+	float = {
+		source = true,
+		border = "single",
+		severity_sort = true,
+		format = function(diagnostic)
+			return string.format(
+				"%s (%s) [%s]",
+				diagnostic.message,
+				diagnostic.source,
+				diagnostic.code or diagnostic.user_data.lsp.code
+			)
+		end,
+	},
+	jump = {
+		float = true,
+	},
+})
