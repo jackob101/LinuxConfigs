@@ -1,6 +1,7 @@
 require("options")
 require("autocommands")
 require("lazy_setup")
+
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- require 'kickstart.plugins.debug',
@@ -46,3 +47,10 @@ require("lazy").setup({
 })
 
 require("keymaps")
+vim.lsp.enable({ "luals" })
+-- vim.lsp.config.gopls = {
+-- 	cmd = { "gopls" },
+-- 	root_markers = { "go.mod", ".git" },
+-- 	filetypes = { "go" },
+-- }
+--
