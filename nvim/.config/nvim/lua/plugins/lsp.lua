@@ -1,28 +1,45 @@
 return {
-	-- {
-	-- 	"mattn/emmet-vim",
-	-- 	ft = { "svelte", "html", "vue", "php" },
-	-- 	config = function() end,
-	-- },
-	-- {
-	-- 	-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-	-- 	-- used for completion, annotations and signatures of Neovim apis
-	-- 	"folke/lazydev.nvim",
-	-- 	ft = "lua",
-	-- 	opts = {
-	-- 		library = {
-	-- 			-- Load luvit types when the `vim.uv` word is found
-	-- 			{ path = "luvit-meta/library", words = { "vim%.uv" } },
-	-- 		},
-	-- 	},
-	-- },
-	-- { "Bilal2453/luvit-meta", lazy = true },
+	{
+		"mattn/emmet-vim",
+		ft = { "svelte", "html", "vue", "php", "templ" },
+		config = function() end,
+	},
+	{
+		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+		-- used for completion, annotations and signatures of Neovim apis
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			enabled = true,
+			library = {
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{ "williamboman/mason.nvim", config = true },
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			ensure_installed = {
+				"lua-language-server",
+				"stylua",
+				"gopls",
+				"clangd",
+				"typescript-language-server",
+				"vue-language-server",
+				"html-lsp",
+				"css-lsp",
+			},
+		},
+	},
+	{ "Bilal2453/luvit-meta", lazy = true },
+	{ "j-hui/fidget.nvim", opts = {} },
 	-- {
 	-- 	-- Main LSP Configuration
 	-- 	"neovim/nvim-lspconfig",
 	-- 	dependencies = {
 	-- 		-- Automatically install LSPs and related tools to stdpath for Neovim
-	-- 		{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
 	-- 		"williamboman/mason-lspconfig.nvim",
 	-- 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	--

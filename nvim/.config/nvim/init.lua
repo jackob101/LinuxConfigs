@@ -1,7 +1,6 @@
 require("options")
 require("autocommands")
 require("lazy_setup")
-
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- require 'kickstart.plugins.debug',
@@ -47,7 +46,28 @@ require("lazy").setup({
 })
 
 require("keymaps")
-vim.lsp.enable({ "luals" })
+
+vim.lsp.config("*", {
+	capabilities = {
+		workspace = {
+			didChangeWatchedFiles = {
+				dynamicRegistration = true, -- Notify LSP about file changes
+			},
+		},
+	},
+})
+
+vim.lsp.enable({
+	"luals",
+	"gopls",
+	"typescript-language-server",
+	"vue-language-server",
+	"templ",
+	"html-lsp",
+	"emmet-language-server",
+	"css-lsp",
+	-- "htmx-lsp",
+})
 -- vim.lsp.config.gopls = {
 -- 	cmd = { "gopls" },
 -- 	root_markers = { "go.mod", ".git" },

@@ -36,6 +36,7 @@ return {
 				sql = { "sqlfluff" },
 				vue = { "prettier" },
 				php = { "easy-coding-standard" },
+				css = { "prettier" },
 				-- go = { "gofmt" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
