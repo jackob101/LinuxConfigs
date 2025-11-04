@@ -124,6 +124,8 @@ return {
 					end
 					load_project_snippets()
 
+					require("luasnip.zig")
+
 					-- -- Run this function every time you enter a buffer in the project
 					-- vim.api.nvim_create_autocmd("BufEnter", {
 					-- 	callback = load_project_snippets,

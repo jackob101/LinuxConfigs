@@ -96,3 +96,8 @@ program = "fish"
 hide_when_typing = true
 
 [terminal]
+
+[keyboard]
+# bindings = [
+# {key = 'F3', mods='Control', chars='\x1B[1;5R' }
+# ]

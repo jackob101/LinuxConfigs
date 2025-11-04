@@ -66,6 +66,10 @@ vim.lsp.enable({
 	"html-lsp",
 	"emmet-language-server",
 	"css-lsp",
+	"zls",
+	"qmlls",
+	"ltex",
+	-- "golangci_lint_langserver",
 	-- "htmx-lsp",
 })
 -- vim.lsp.config.gopls = {
