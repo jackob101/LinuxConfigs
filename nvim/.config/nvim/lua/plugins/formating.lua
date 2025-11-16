@@ -31,6 +31,16 @@ return {
 					lsp_format = lsp_format_opt,
 				}
 			end,
+			formatters = {
+				csharpier_native = {
+					command = "csharpier",
+					args = {
+						"format",
+						"--write-stdout",
+					},
+					to_stdin = true,
+				},
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				sql = { "sqlfluff" },
@@ -39,6 +49,7 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
+				cs = { "csharpier_native" },
 				-- go = { "gofmt" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },

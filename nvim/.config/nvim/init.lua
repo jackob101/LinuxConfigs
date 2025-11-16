@@ -61,7 +61,7 @@ vim.lsp.enable({
 	"luals",
 	"gopls",
 	"typescript-language-server",
-	"vue-language-server",
+	-- "vue-language-server",
 	"templ",
 	"html-lsp",
 	"emmet-language-server",
@@ -69,6 +69,7 @@ vim.lsp.enable({
 	"zls",
 	"qmlls",
 	"ltex",
+	"csharp_ls",
 	-- "golangci_lint_langserver",
 	-- "htmx-lsp",
 })

@@ -1,22 +1,16 @@
 return {
-	cmd = function(dispatchers, config)
-		return vim.lsp.rpc.start({ "csharp-ls" }, dispatchers, {
-			-- csharp-ls attempt to locate sln, slnx or csproj files from cwd, so set cwd to root directory.
-			-- If cmd_cwd is provided, use it instead.
-			cwd = config.cmd_cwd or config.root_dir,
-			env = config.cmd_env,
-			detached = config.detached,
-		})
-	end,
-	root_dir = function(bufnr, on_dir)
-		local fname = vim.api.nvim_buf_get_name(bufnr)
-		on_dir(
-			util.root_pattern("*.sln")(fname)
-				or util.root_pattern("*.slnx")(fname)
-				or util.root_pattern("*.csproj")(fname)
-		)
-	end,
+	cmd = { vim.fn.getenv("HOME") .. "/.dotnet/tools/csharp-ls" },
+	-- root_markers = { "*.sln", "*.slnx" },
 	filetypes = { "cs" },
+	-- root_markers = function(name)
+	-- 	return name:match("%.csproj$")
+	-- end,
+	root_dir = function(fname, callback)
+		local root = vim.fs.root(fname, function(name, path)
+			return name:match("%.csproj$") ~= nil
+		end)
+		callback(root)
+	end,
 	init_options = {
 		AutomaticWorkspaceInit = true,
 	},
