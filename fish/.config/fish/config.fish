@@ -21,6 +21,8 @@ if status is-interactive
     fish_add_path $HOME/.local/share/coursier/bin/
     fish_add_path $HOME/.cargo/bin/
     set GOBIN $HOME/go/bin
+    set -gx VINTAGE_STORY /opt/vintagestory
+    set -gx DOTNET_CLI_UI_LANGUAGE en
 
     alias books='set book (ls $HOME/Documents/books | fzf); zathura $HOME/Documents/books/$book & disown && exit'
     alias projects=projects_fun
