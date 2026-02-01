@@ -5,8 +5,6 @@ return {
 		priority = 1000,
 		init = function()
 			vim.cmd.colorscheme("tokyonight-night")
-
-			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
@@ -14,6 +12,7 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		priority = 1000,
+		enabled = false,
 		init = function()
 			require("onedark").setup({
 				style = "warm",
@@ -22,11 +21,19 @@ return {
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
-
+	{
+		"xero/miasma.nvim",
+		lazy = false,
+		enabled = false,
+		priority = 1000,
+		config = function()
+			vim.cmd("colorscheme miasma")
+		end,
+	},
 	{
 		"neanias/everforest-nvim",
 		priority = 1000,
-		enabled = false,
+		enabled = true,
 		init = function()
 			---@diagnostic disable: missing-fields
 			require("everforest").setup({

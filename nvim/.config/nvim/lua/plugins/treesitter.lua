@@ -1,8 +1,11 @@
 return {
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" } },
 		build = ":TSUpdate",
-		main = "nvim-treesitter.configs", -- Sets main module to use for opts
+		lazy = false,
+		branch = "master",
+		-- main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
 			ensure_installed = {
@@ -28,12 +31,19 @@ return {
 				additional_vim_regex_highlighting = { "ruby" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
+			-- textobjects = {
+			-- 	select = {
+			-- 		enable = true,
+			-- 		lookahead = true,
+			-- 		keymaps = {
+			-- 			["af"] = { query = "@function.outer", desc = "Select around function/method" },
+			-- 			["if"] = { query = "@function.inner", desc = "Select inside function/method" },
+			-- 			["ac"] = "@class.outer",
+			-- 			["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+			-- 		},
+			-- 		-- include_surrounding_whitespace = true,
+			-- 	},
+			-- },
 		},
-		-- There are additional nvim-treesitter modules that you can use to interact
-		-- with nvim-treesitter. You should go explore a few and see what interests you:
-		--
-		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 	},
 }

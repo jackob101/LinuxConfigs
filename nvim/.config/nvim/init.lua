@@ -1,6 +1,7 @@
 require("options")
 require("autocommands")
 require("lazy_setup")
+require("commands")
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- require 'kickstart.plugins.debug',

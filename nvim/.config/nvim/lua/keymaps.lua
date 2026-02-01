@@ -27,9 +27,28 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 vim.keymap.set("v", "p", '"_dP', { desc = "Paste without without", noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save buffer" })
 
 vim.keymap.set("n", "<leader>td", toggleDiagnosticLines, { desc = "Toggle virtual diagnostic lines" })
+vim.keymap.set("n", "<leader>;", "<S-a>;<ESC>", { desc = "Add ; at the end of the line" })
+
+local luasnip = require("luasnip")
+
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+	if luasnip.locally_jumpable(1) then
+		luasnip.jump(1)
+	end
+end)
+vim.keymap.set({ "i", "s" }, "<C-h>", function()
+	if luasnip.locally_jumpable(-1) then
+		luasnip.jump(-1)
+	end
+end)
+vim.keymap.set({ "i", "n" }, "<C-k>", function()
+	if luasnip.expandable() then
+		luasnip.expand()
+	end
+end, { desc = "Expand snippet", silent = true })

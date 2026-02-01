@@ -5,48 +5,34 @@ return {
 			{
 				"L3MON4D3/LuaSnip",
 				dependencies = {
+					"nvim-telescope/telescope.nvim",
 					"rafamadriz/friendly-snippets",
 				},
+				build = "make install_jsregexp",
 				version = "v2.*",
 				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
-					local luasnip = require("luasnip")
+					-- require("luasnip.loaders.from_vscode").lazy_load()
+					-- local luasnip = require("luasnip")
+					--
+					-- vim.keymap.set({ "i", "s" }, "<C-l>", function()
+					-- 	if luasnip.locally_jumpable(1) then
+					-- 		luasnip.jump(1)
+					-- 	end
+					-- end)
+					-- vim.keymap.set({ "i", "s" }, "<C-h>", function()
+					-- 	if luasnip.locally_jumpable(-1) then
+					-- 		luasnip.jump(-1)
+					-- 	end
+					-- end)
+					-- vim.keymap.set({ "i", "n" }, "<C-k>", function()
+					-- 	if luasnip.expandable() then
+					-- 		luasnip.expand()
+					-- 	else
+					-- 		print("Not expandable")
+					-- 	end
+					-- end)
 
-					vim.keymap.set({ "i", "s" }, "<C-l>", function()
-						if luasnip.locally_jumpable(1) then
-							luasnip.jump(1)
-						end
-					end)
-					vim.keymap.set({ "i", "s" }, "<C-h>", function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
-						end
-					end)
-					vim.keymap.set({ "i", "n" }, "<C-k>", function()
-						luasnip.expand()
-					end)
-
-					local function load_project_snippets()
-						-- Construct the path to the project-specific snippet file
-						local project_snippets_path = vim.fn.getcwd() .. "/.nvim/snippets.lua"
-
-						-- Check if the file exists and load it
-						if vim.fn.filereadable(project_snippets_path) == 1 then
-							dofile(project_snippets_path)
-							print("Loaded project snippets from: " .. project_snippets_path)
-						else
-							print("No project snippets found.")
-						end
-					end
-					load_project_snippets()
-
-					require("luasnip.zig")
-					require("luasnip.csharp")
-
-					-- -- Run this function every time you enter a buffer in the project
-					-- vim.api.nvim_create_autocmd("BufEnter", {
-					-- 	callback = load_project_snippets,
-					-- })
+					require("snippets").reload_snippets()
 				end,
 			},
 		},
@@ -59,6 +45,7 @@ return {
 				preset = "default",
 				["<Tab>"] = {},
 				["<S-Tab>"] = {},
+				["<C-k>"] = {},
 			},
 			appearance = {
 				use_nvim_cmp_as_default = true,
@@ -86,9 +73,6 @@ return {
 			},
 			snippets = {
 				preset = "luasnip",
-			},
-			fuzzy = {
-				use_typo_resistance = true,
 			},
 		},
 		opts_extend = { "sources.default" },

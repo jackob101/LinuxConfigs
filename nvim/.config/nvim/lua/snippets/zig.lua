@@ -20,25 +20,25 @@ local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
-ls.add_snippets("cs", {
-	s("wl", {
-		t("Console.WriteLine("),
-		i(1, "value"),
-		t(");"),
-	}),
-	s("varc", {
-		i(1, "Type"),
-		t(" "),
-		i(2, "name"),
-		t(" = "),
-		i(3, "value"),
-		t(";"),
-	}),
-	s("var", {
-		t("var "),
-		i(1, "name"),
-		t(" = "),
-		i(2, "value"),
-		t(";"),
-	}),
-})
+local M = {}
+
+function M.load()
+	ls.add_snippets("zig", {
+		s("const", {
+			t("const "),
+			i(1, "name"),
+			t(" = "),
+			i(2, "expr"),
+			t(";"),
+		}),
+		s("var", {
+			t("var "),
+			i(1, "name"),
+			t(" = "),
+			i(2, "expr"),
+			t(";"),
+		}),
+	})
+end
+
+return M
