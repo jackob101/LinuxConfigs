@@ -11,9 +11,9 @@ return {
 				build = "make install_jsregexp",
 				version = "v2.*",
 				config = function()
-					-- require("luasnip.loaders.from_vscode").lazy_load()
-					-- local luasnip = require("luasnip")
-					--
+					require("luasnip.loaders.from_vscode").lazy_load()
+					local luasnip = require("luasnip")
+
 					-- vim.keymap.set({ "i", "s" }, "<C-l>", function()
 					-- 	if luasnip.locally_jumpable(1) then
 					-- 		luasnip.jump(1)

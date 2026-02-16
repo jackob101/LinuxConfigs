@@ -4,6 +4,7 @@ local snippets = {
 	"snippets.zig",
 	"snippets.csharp",
 	"snippets.lua",
+	"snippets.go",
 }
 local M = {}
 
@@ -27,6 +28,7 @@ function M.reload_snippets()
 		require(value).load()
 	end
 	load_project_snippets()
+	require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return M

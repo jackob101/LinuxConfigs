@@ -25,25 +25,29 @@ return {
 			auto_install = true,
 			highlight = {
 				enable = true,
-				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-				--  If you are experiencing weird indenting issues, add the language to
-				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				additional_vim_regex_highlighting = { "ruby" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
-			-- textobjects = {
-			-- 	select = {
-			-- 		enable = true,
-			-- 		lookahead = true,
-			-- 		keymaps = {
-			-- 			["af"] = { query = "@function.outer", desc = "Select around function/method" },
-			-- 			["if"] = { query = "@function.inner", desc = "Select inside function/method" },
-			-- 			["ac"] = "@class.outer",
-			-- 			["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-			-- 		},
-			-- 		-- include_surrounding_whitespace = true,
-			-- 	},
-			-- },
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = { query = "@function.outer", desc = "Select around function/method" },
+						["if"] = { query = "@function.inner", desc = "Select inside function/method" },
+						["ac"] = "@class.outer",
+						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+					},
+					-- include_surrounding_whitespace = true,
+				},
+			},
 		},
+		config = function(opts)
+			require("nvim-treesitter.configs").setup(opts)
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start)
+				end,
+			})
+		end,
 	},
 }

@@ -70,6 +70,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 --
 vim.o.updatetime = 250
+vim.o.swapfile = false
 -- vim.cmd(
 -- 	[[autocmd CursorHold,CursorHoldI * lua ]]
 -- )
