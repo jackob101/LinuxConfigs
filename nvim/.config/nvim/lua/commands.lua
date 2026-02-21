@@ -42,3 +42,8 @@ vim.api.nvim_create_user_command("GoplsRefresh", function()
 		vim.api.nvim_buf_delete(buf, { force = true })
 	end
 end, { desc = "Refresh gopls in background for all generated files" })
+
+vim.api.nvim_create_user_command("LspRestart", function(opts)
+	vim.lsp.enable(opts.args, false)
+	vim.lsp.enable(opts.args, true)
+end, { desc = "Restarts lsp server", nargs = 1 })

@@ -39,6 +39,7 @@ return {
 				"vue-language-server",
 				"html-lsp",
 				"css-lsp",
+				"go-debug-adapter",
 			},
 		},
 	},
