@@ -71,6 +71,7 @@ vim.lsp.enable({
 	"qmlls",
 	"ltex",
 	"bash-lsp",
+	"postgres-lsp",
 	-- "csharp_ls",
 	-- "golangci_lint_langserver",
 	-- "htmx-lsp",
