@@ -5,7 +5,6 @@ return {
 			{
 				"L3MON4D3/LuaSnip",
 				dependencies = {
-					"nvim-telescope/telescope.nvim",
 					"rafamadriz/friendly-snippets",
 				},
 				build = "make install_jsregexp",

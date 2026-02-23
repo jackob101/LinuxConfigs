@@ -29,12 +29,12 @@ return {
 						width = width,
 						row = math.floor(percent_height * (vim.o.lines - height)),
 						col = math.floor(percent_width * (vim.o.columns - width)),
+						border = { "─", "─", "─", " ", "─", "─", "─", " " },
 					}
 				end
 			end
 
 			require("mini.pick").setup({
-
 				window = { config = win_config(0.5, 0.5) },
 			})
 			require("mini.extra").setup()
