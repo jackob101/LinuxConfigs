@@ -12,26 +12,6 @@ return {
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
 					local luasnip = require("luasnip")
-
-					-- vim.keymap.set({ "i", "s" }, "<C-l>", function()
-					-- 	if luasnip.locally_jumpable(1) then
-					-- 		luasnip.jump(1)
-					-- 	end
-					-- end)
-					-- vim.keymap.set({ "i", "s" }, "<C-h>", function()
-					-- 	if luasnip.locally_jumpable(-1) then
-					-- 		luasnip.jump(-1)
-					-- 	end
-					-- end)
-					-- vim.keymap.set({ "i", "n" }, "<C-k>", function()
-					-- 	if luasnip.expandable() then
-					-- 		luasnip.expand()
-					-- 	else
-					-- 		print("Not expandable")
-					-- 	end
-					-- end)
-
-					require("snippets").reload_snippets()
 				end,
 			},
 		},
@@ -51,7 +31,7 @@ return {
 				nerd_font_variant = "mono",
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "buffer" },
 			},
 			signature = {
 				enabled = true,

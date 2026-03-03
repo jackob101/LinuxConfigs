@@ -4,7 +4,6 @@ return {
 		enabled = enable,
 		priority = 1000,
 		init = function()
-			-- vim.cmd.colorscheme("tokyonight-night")
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
@@ -26,9 +25,6 @@ return {
 		lazy = false,
 		enabled = false,
 		priority = 1000,
-		config = function()
-			vim.cmd("colorscheme miasma")
-		end,
 	},
 	{
 		"neanias/everforest-nvim",
@@ -40,8 +36,14 @@ return {
 				background = "hard",
 				ui_contrast = "high",
 			})
-			vim.cmd.colorscheme("everforest")
 			vim.cmd.hi("EndOfBuffer guifg=bg")
 		end,
+	},
+	{
+		"RRethy/base16-nvim",
+	},
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = { "rktjmp/lush.nvim" },
 	},
 }

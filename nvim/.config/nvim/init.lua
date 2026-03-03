@@ -63,3 +63,6 @@ vim.lsp.enable({
 	-- "golangci_lint_langserver",
 	-- "htmx-lsp",
 })
+
+vim.cmd.colorscheme("zenwritten")
+vim.cmd.hi("EndOfBuffer guifg=bg")

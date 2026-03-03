@@ -50,6 +50,7 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				cs = { "csharpier_native" },
+				templ = { "templ" },
 				-- go = { "gofmt" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
