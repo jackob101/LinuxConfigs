@@ -1,5 +1,5 @@
 return {
-	cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server" },
+	cmd = { "/home/jackob/.local/share/nvim/mason/bin/lua-language-server" },
 	filetypes = { "lua" },
 	root_markers = { "init.lua", ".luarc.json", ".luarc.jsonc" },
 	telemetry = { enabled = false },

@@ -5,6 +5,8 @@ require("commands")
 require("custom.pickers")
 require("custom.string_utils")
 
+local pluginConfigs = require("plugin-configs")
+
 vim.pack.add({
 	"https://github.com/tpope/vim-sleuth",
 	"https://github.com/rafamadriz/friendly-snippets",
@@ -18,99 +20,28 @@ vim.pack.add({
 	"https://github.com/echasnovski/mini.nvim",
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/lukas-reineke/indent-blankline.nvim",
 })
 
+local function setupPlugin(name)
+	local config = pluginConfigs[name]
+	require(name).setup(config)
+end
+
 require("luasnip.loaders.from_vscode").lazy_load()
-require("blink.cmp").setup({
-	keymap = {
-		preset = "default",
-		["<Tab>"] = {},
-		["<S-Tab>"] = {},
-		["<C-k>"] = {},
-	},
-	appearance = {
-		use_nvim_cmp_as_default = true,
-		nerd_font_variant = "mono",
-	},
-	sources = {
-		default = { "lsp", "path", "buffer" },
-	},
-	signature = {
-		enabled = true,
-	},
-	completion = {
-		documentation = {
-			auto_show = true,
-			auto_show_delay_ms = 500,
-		},
-		menu = {
-			draw = {
-				columns = {
-					{ "label", "label_description", gap = 1 },
-					{ "kind_icon", "kind", gap = 1 },
-				},
-			},
-		},
-	},
-	snippets = {
-		preset = "luasnip",
-	},
-})
-require("nvim-tree").setup({
-	diagnostics = {
-		show_on_dirs = true,
-		enable = true,
-	},
-})
-require("conform").setup({
-	notify_on_error = false,
-	format_on_save = function(bufnr)
-		local disable_filetypes = { c = true, cpp = true }
-		local lsp_format_opt
-		if disable_filetypes[vim.bo[bufnr].filetype] then
-			lsp_format_opt = "never"
-		else
-			lsp_format_opt = "fallback"
-		end
-		return {
-			timeout_ms = 500,
-			lsp_format = lsp_format_opt,
-		}
-	end,
-	formatters = {
-		csharpier_native = {
-			command = "csharpier",
-			args = {
-				"format",
-				"--write-stdout",
-			},
-			to_stdin = true,
-		},
-	},
-	formatters_by_ft = {
-		lua = { "stylua" },
-		sql = { "sqlfluff" },
-		vue = { "prettier" },
-		php = { "easy-coding-standard" },
-		css = { "prettier" },
-		html = { "prettier" },
-		json = { "prettier" },
-		cs = { "csharpier_native" },
-		templ = { "templ" },
-	},
-})
-require("gitsigns").setup({
-	signs = {
-		add = { text = "┃" },
-		change = { text = "┃" },
-		delete = { text = "┃" },
-		topdelete = { text = "┃" },
-		changedelete = { text = "┃" },
-	},
-})
-require("mini.ai").setup({ n_lines = 500 })
-require("mini.pairs").setup({})
+
+setupPlugin("lazydev")
+setupPlugin("blink.cmp")
+setupPlugin("nvim-tree")
+setupPlugin("conform")
+setupPlugin("gitsigns")
+setupPlugin("mini.ai")
+setupPlugin("mini.pairs")
+setupPlugin("mini.pick")
+setupPlugin("mini.extra")
+setupPlugin("ibl")
 require("mini.surround").setup()
+
 local miniclue = require("mini.clue")
 miniclue.setup({
 	triggers = {
@@ -141,18 +72,7 @@ miniclue.setup({
 		{ mode = "n", keys = "<leader>t", desc = "Toggles" },
 	},
 })
-require("mini.pick").setup({
-	window = {
-		config = {
-			anchor = "NW",
-			height = math.floor(0.4 * vim.o.lines),
-			width = vim.o.columns,
-			border = { "─", "─", "─", " ", " ", " ", " ", " " },
-		},
-		prompt_prefix = ">",
-	},
-})
-require("mini.extra").setup()
+
 local statusline = require("mini.statusline")
 statusline.setup({ use_icons = vim.g.have_nerd_font })
 ---@diagnostic disable-next-line: duplicate-set-field
@@ -160,7 +80,52 @@ statusline.section_location = function()
 	return "%2l:%-2v"
 end
 
-require("keymaps")
+require("vim._core.ui2").enable({
+	enable = true,
+	msg = {
+		targets = {
+			[""] = "msg",
+			empty = "cmd",
+			bufwrite = "msg",
+			confirm = "cmd",
+			emsg = "pager",
+			echo = "msg",
+			echomsg = "msg",
+			echoerr = "pager",
+			completion = "cmd",
+			list_cmd = "pager",
+			lua_error = "pager",
+			lua_print = "msg",
+			progress = "pager",
+			rpc_error = "pager",
+			quickfix = "msg",
+			search_cmd = "cmd",
+			search_count = "cmd",
+			shell_cmd = "pager",
+			shell_err = "pager",
+			shell_out = "pager",
+			shell_ret = "msg",
+			undo = "msg",
+			verbose = "pager",
+			wildlist = "cmd",
+			wmsg = "msg",
+			typed_cmd = "cmd",
+		},
+		cmd = {
+			height = 0.5,
+		},
+		dialog = {
+			height = 0.5,
+		},
+		msg = {
+			height = 0.3,
+			timeout = 5000,
+		},
+		pager = {
+			height = 0.5,
+		},
+	},
+})
 
 vim.lsp.config("*", {
 	capabilities = {
@@ -187,6 +152,9 @@ vim.lsp.enable({
 	"postgres-lsp",
 })
 
+require("keymaps")
+require("macro")
+require("lsp-progress")
 vim.cmd.colorscheme("kanagawa-dragon")
 vim.cmd.hi("EndOfBuffer guifg=bg")
 
