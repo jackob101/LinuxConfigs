@@ -1,0 +1,35 @@
+set notification-error-bg       rgba(255,85,85,1)     # Red
+set notification-error-fg       "#ffffff"   # Foreground
+set notification-warning-bg     rgba(255,184,108,1)   # Orange
+set notification-warning-fg     rgba(68,71,90,1)      # Selection
+set notification-bg             "#232A2E"      # Background
+set notification-fg             "#ffffff"   # Foreground
+
+set completion-bg               "#232A2E"      # Background
+set completion-fg               rgba(98,114,164,1)    # Comment
+set completion-group-bg         "#232A2E"      # Background
+set completion-group-fg         rgba(98,114,164,1)    # Comment
+set completion-highlight-bg     rgba(68,71,90,1)      # Selection
+set completion-highlight-fg     "#ffffff"   # Foreground
+
+set inputbar-bg                 "#232A2E"      # Background
+set inputbar-fg                 "#ffffff"   # Foreground
+set statusbar-bg                "#232A2E"      # Background
+set statusbar-fg                "#ffffff"   # Foreground
+
+set highlight-color             rgba(255,184,108,0.5) # Orange
+set highlight-active-color      rgba(255,121,198,0.5) # Pink
+
+set default-bg                  "#232A2E"      # Background
+set default-fg                  "#e6e1e5"   # Foreground
+
+set render-loading              true
+set render-loading-fg           "#232A2E"      # Background
+set render-loading-bg           "#ffffff"   # Foreground
+
+#
+# Recolor mode settings
+#
+
+set recolor-lightcolor          "#232A2E"      # Background
+set recolor-darkcolor           "#ffffff"   # Foreground
