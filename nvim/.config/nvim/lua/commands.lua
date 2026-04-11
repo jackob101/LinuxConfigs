@@ -47,3 +47,14 @@ vim.api.nvim_create_user_command("LspRestart", function(opts)
 	vim.lsp.enable(opts.args, false)
 	vim.lsp.enable(opts.args, true)
 end, { desc = "Restarts lsp server", nargs = 1 })
+
+local background = "dark"
+vim.api.nvim_create_user_command("SwitchColor", function()
+	if background == "dark" then
+		background = "light"
+	else
+		background = "dark"
+	end
+	vim.cmd("set background=" .. background)
+	vim.cmd.hi("EndOfBuffer guifg=bg")
+end, {})

@@ -64,5 +64,5 @@ vim.lsp.enable({
 	-- "htmx-lsp",
 })
 
-vim.cmd.colorscheme("zenwritten")
+vim.cmd.colorscheme("kanagawa-dragon")
 vim.cmd.hi("EndOfBuffer guifg=bg")
