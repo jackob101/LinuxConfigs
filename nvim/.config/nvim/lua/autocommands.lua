@@ -66,4 +66,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		local ft = args.match
+		if vim.treesitter.language.get_lang(ft) then
+			pcall(vim.treesitter.start)
+		end
+	end,
+})
+
 require("custom.organize-imports-pre-save")({ "*.go", "*.lua", "*.templ" }, { "source.organizeImports" })

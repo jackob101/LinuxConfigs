@@ -14,7 +14,6 @@ vim.pack.add({
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/MagicDuck/grug-far.nvim",
-	"https://github.com/folke/which-key.nvim",
 	"https://github.com/folke/lazydev.nvim",
 	"https://github.com/echasnovski/mini.nvim",
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
@@ -109,59 +108,39 @@ require("gitsigns").setup({
 		changedelete = { text = "┃" },
 	},
 })
-require("which-key").setup({
-	delay = 0,
-	icons = {
-		-- set icon mappings to true if you have a Nerd Font
-		mappings = vim.g.have_nerd_font,
-		-- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-		-- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-		keys = vim.g.have_nerd_font and {} or {
-			Up = "<Up> ",
-			Down = "<Down> ",
-			Left = "<Left> ",
-			Right = "<Right> ",
-			C = "<C-…> ",
-			M = "<M-…> ",
-			D = "<D-…> ",
-			S = "<S-…> ",
-			CR = "<CR> ",
-			Esc = "<Esc> ",
-			ScrollWheelDown = "<ScrollWheelDown> ",
-			ScrollWheelUp = "<ScrollWheelUp> ",
-			NL = "<NL> ",
-			BS = "<BS> ",
-			Space = "<Space> ",
-			Tab = "<Tab> ",
-			F1 = "<F1>",
-			F2 = "<F2>",
-			F3 = "<F3>",
-			F4 = "<F4>",
-			F5 = "<F5>",
-			F6 = "<F6>",
-			F7 = "<F7>",
-			F8 = "<F8>",
-			F9 = "<F9>",
-			F10 = "<F10>",
-			F11 = "<F11>",
-			F12 = "<F12>",
-		},
-	},
-
-	-- Document existing key chains
-	spec = {
-		{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-		{ "<leader>d", group = "[D]ocument" },
-		{ "<leader>r", group = "[R]ename" },
-		{ "<leader>s", group = "[S]earch" },
-		{ "<leader>w", group = "[W]orkspace" },
-		{ "<leader>t", group = "[T]oggle" },
-		{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-	},
-})
 require("mini.ai").setup({ n_lines = 500 })
 require("mini.pairs").setup({})
 require("mini.surround").setup()
+local miniclue = require("mini.clue")
+miniclue.setup({
+	triggers = {
+		{ mode = { "n", "x" }, keys = "<Leader>" },
+		{ mode = "n", keys = "[" },
+		{ mode = "n", keys = "]" },
+		{ mode = "i", keys = "<C-x>" },
+		{ mode = { "n", "x" }, keys = "g" },
+		{ mode = { "n", "x" }, keys = "'" },
+		{ mode = { "n", "x" }, keys = "`" },
+		{ mode = { "n", "x" }, keys = '"' },
+		{ mode = { "i", "c" }, keys = "<C-r>" },
+		{ mode = "n", keys = "<C-w>" },
+		{ mode = { "n", "x" }, keys = "z" },
+	},
+	window = {
+		delay = 500,
+	},
+	clues = {
+		miniclue.gen_clues.square_brackets(),
+		miniclue.gen_clues.builtin_completion(),
+		miniclue.gen_clues.g(),
+		miniclue.gen_clues.marks(),
+		miniclue.gen_clues.registers(),
+		miniclue.gen_clues.windows(),
+		miniclue.gen_clues.z(),
+		{ mode = "n", keys = "<leader>p", desc = "Pickers" },
+		{ mode = "n", keys = "<leader>t", desc = "Toggles" },
+	},
+})
 require("mini.pick").setup({
 	window = {
 		config = {
@@ -174,28 +153,12 @@ require("mini.pick").setup({
 	},
 })
 require("mini.extra").setup()
-
-vim.keymap.set("n", "<leader>pk", MiniExtra.pickers.keymaps, { desc = "Keymaps" })
-vim.keymap.set("n", "<leader>pf", MiniPick.builtin.files, { desc = "Files on root" })
-vim.keymap.set("n", "<leader>pr", MiniPick.builtin.resume, { desc = "Resume previous pick" })
-vim.keymap.set("n", "<leader><leader>", MiniPick.builtin.buffers, { desc = "Open buffers" })
-vim.keymap.set("n", "<leader>pg", function()
-	MiniPick.builtin.grep({ pattern = "" })
-end, { desc = "Grep on root dir" })
-vim.keymap.set("n", "<leader>p/", function()
-	MiniPick.builtin.grep({ pattern = "", globs = { vim.fn.expand("%") } })
-end, { desc = "Current buffer grep" })
-vim.keymap.set("n", "<leader>pd", MiniExtra.pickers.diagnostic, { desc = "Diagnostics" })
-
 local statusline = require("mini.statusline")
 statusline.setup({ use_icons = vim.g.have_nerd_font })
 ---@diagnostic disable-next-line: duplicate-set-field
 statusline.section_location = function()
 	return "%2l:%-2v"
 end
-
-vim.keymap.set("n", "<leader>te", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>tE", "<CMD>NvimTreeFindFile<CR>")
 
 require("keymaps")
 
@@ -213,7 +176,6 @@ vim.lsp.enable({
 	"luals",
 	"gopls",
 	"typescript-language-server",
-	-- "vue-language-server",
 	"templ",
 	"html",
 	"emmet-language-server",
@@ -227,3 +189,5 @@ vim.lsp.enable({
 
 vim.cmd.colorscheme("kanagawa-dragon")
 vim.cmd.hi("EndOfBuffer guifg=bg")
+
+-- vim.treesitter.language.add("go")
