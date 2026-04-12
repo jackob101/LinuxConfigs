@@ -44,8 +44,8 @@ vim.api.nvim_create_autocmd("LspProgress", {
 			local text = " " .. value.title .. " " .. value.message .. " "
 			local width = #text
 			api.nvim_buf_set_lines(buf_id, 0, -1, false, { text })
-			if vim.api.nvim_win_is_valid(win_id) then
-				vim.api.nvim_win_set_config(win_id, {
+			if api.nvim_win_is_valid(win_id) then
+				api.nvim_win_set_config(win_id, {
 					relative = "editor",
 					width = width,
 					col = vim.o.columns - width - 4,
@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
 				})
 			end
 		elseif value.kind == "end" then
-			if vim.api.nvim_win_is_valid(win_id) then
+			if api.nvim_win_is_valid(win_id) then
 				api.nvim_win_close(win_id, false)
 			end
 		end
