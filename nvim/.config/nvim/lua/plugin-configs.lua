@@ -105,4 +105,9 @@ return {
 			prompt_prefix = ">",
 		},
 	},
+	["ibl"] = {
+		scope = {
+			show_start = false,
+		},
+	},
 }
