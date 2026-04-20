@@ -45,3 +45,6 @@ vim.keymap.set("n", "<leader>p/", function()
 	MiniPick.builtin.grep({ pattern = "", globs = { vim.fn.expand("%") } })
 end, { desc = "Current buffer grep" })
 vim.keymap.set("n", "<leader>pd", MiniExtra.pickers.diagnostic, { desc = "Diagnostics" })
+
+-- git
+vim.keymap.set("n", "<leader>tb", "<CMD>Gitsigns blame<CR>", { desc = "Toggle git blame" })
