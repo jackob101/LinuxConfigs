@@ -91,6 +91,7 @@ return {
 			json = { "prettier" },
 			cs = { "csharpier_native" },
 			templ = { "templ" },
+			yaml = { "yamlfmt" },
 		},
 	},
 	["gitsigns"] = {
