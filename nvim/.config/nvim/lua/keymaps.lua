@@ -48,3 +48,8 @@ vim.keymap.set("n", "<leader>pd", MiniExtra.pickers.diagnostic, { desc = "Diagno
 
 -- git
 vim.keymap.set("n", "<leader>tb", "<CMD>Gitsigns blame<CR>", { desc = "Toggle git blame" })
+
+-- debug
+vim.keymap.set("n", "<leader>db", "<cmd>:DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
+vim.keymap.set("n", "<leader>do", "<cmd>:DapStepOver<CR>", { desc = "Step over" })
+vim.keymap.set("n", "<leader>dc", "<cmd>:DapContinue<CR>", { desc = "Continue" })

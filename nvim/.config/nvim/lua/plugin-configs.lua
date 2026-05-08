@@ -1,3 +1,12 @@
+function miniPickWindowConfig()
+	return {
+		anchor = "NW",
+		height = math.floor(0.4 * vim.o.lines),
+		width = vim.o.columns,
+		border = { "─", "─", "─", " ", " ", " ", " ", " " },
+	}
+end
+
 return {
 	["lazydev"] = {
 		enabled = true,
@@ -96,12 +105,7 @@ return {
 	["mini.ai"] = { n_lines = 500 },
 	["mini.pick"] = {
 		window = {
-			config = {
-				anchor = "NW",
-				height = math.floor(0.4 * vim.o.lines),
-				width = vim.o.columns,
-				border = { "─", "─", "─", " ", " ", " ", " ", " " },
-			},
+			config = miniPickWindowConfig,
 			prompt_prefix = ">",
 		},
 	},
@@ -110,4 +114,5 @@ return {
 			show_start = false,
 		},
 	},
+	["dap"] = {},
 }

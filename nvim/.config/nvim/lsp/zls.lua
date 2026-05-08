@@ -1,5 +1,5 @@
 return {
-	cmd = { vim.fn.stdpath("data") .. "/mason/bin/zls" },
+	cmd = { "zls" },
 	root_markers = { ".git", "build.zig" },
 	filetypes = { "zig" },
 	settings = {

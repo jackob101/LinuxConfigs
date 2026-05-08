@@ -21,6 +21,8 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/rebelot/kanagawa.nvim",
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
+	"https://github.com/mfussenegger/nvim-dap",
+	"https://github.com/igorlfs/nvim-dap-view",
 })
 
 local function setupPlugin(name)
@@ -40,7 +42,7 @@ setupPlugin("mini.pairs")
 setupPlugin("mini.pick")
 setupPlugin("mini.extra")
 setupPlugin("ibl")
-require("mini.surround").setup()
+setupPlugin("mini.surround")
 
 local miniclue = require("mini.clue")
 miniclue.setup({
@@ -155,7 +157,16 @@ vim.lsp.enable({
 require("keymaps")
 require("macro")
 require("lsp-progress")
+require("debuger")
 vim.cmd.colorscheme("kanagawa-dragon")
 vim.cmd.hi("EndOfBuffer guifg=bg")
 
 -- vim.treesitter.language.add("go")
+local filetypes = {
+	tsx = { "typescriptreact", "typescript.tsx" },
+	typescript = { "ts" },
+}
+
+for lang, ft in pairs(filetypes) do
+	vim.treesitter.language.register(lang, ft)
+end
