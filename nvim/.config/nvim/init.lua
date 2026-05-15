@@ -167,6 +167,12 @@ local filetypes = {
 	typescript = { "ts" },
 }
 
+vim.filetype.add({
+	filename = {
+		["Caddyfile"] = "caddy",
+	},
+})
+
 for lang, ft in pairs(filetypes) do
 	vim.treesitter.language.register(lang, ft)
 end
