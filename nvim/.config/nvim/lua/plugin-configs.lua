@@ -92,6 +92,7 @@ return {
 			cs = { "csharpier_native" },
 			templ = { "templ" },
 			yaml = { "yamlfmt" },
+			zig = { "zigfmt" },
 		},
 	},
 	["gitsigns"] = {

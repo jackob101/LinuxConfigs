@@ -152,6 +152,7 @@ vim.lsp.enable({
 	"ltex",
 	"bash-lsp",
 	"postgres-lsp",
+	"ols",
 })
 
 require("keymaps")
@@ -165,6 +166,7 @@ vim.cmd.hi("EndOfBuffer guifg=bg")
 local filetypes = {
 	tsx = { "typescriptreact", "typescript.tsx" },
 	typescript = { "ts" },
+	slang = { "shaderslang" },
 }
 
 vim.filetype.add({
