@@ -153,6 +153,7 @@ vim.lsp.enable({
 	"bash-lsp",
 	"postgres-lsp",
 	"ols",
+	"yaml-lsp",
 })
 
 require("keymaps")
@@ -170,6 +171,9 @@ local filetypes = {
 }
 
 vim.filetype.add({
+	extension = {
+		tpl = "helm",
+	},
 	filename = {
 		["Caddyfile"] = "caddy",
 	},
